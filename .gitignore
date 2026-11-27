@@ -1,0 +1,16 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+
+# Tooling
+node_modules/
+vendor/
+.claude/
+.impeccable/
+
+# Build output
+*.zip

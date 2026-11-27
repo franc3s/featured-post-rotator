@@ -1,0 +1,1258 @@
+.bmfr-wrap .form-table th {
+	width: 260px;
+}
+
+.bmfr-wrap table.widefat td,
+.bmfr-wrap table.widefat th {
+	vertical-align: top;
+}
+
+.bmfr-wrap details summary {
+	cursor: pointer;
+}
+
+.bmfr-wrap details pre {
+	max-width: 480px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.bmfr-wrap .subsubsub {
+	margin-bottom: 8px;
+}
+
+.bmfr-wrap .description,
+.bmfr-wrap .bmfr-lede {
+	max-width: 640px;
+}
+
+.bmfr-wrap [hidden] {
+	display: none !important;
+}
+
+/* Quick nav: sticky under the WP admin bar so a long settings page stays navigable. */
+.bmfr-quicknav {
+	position: sticky;
+	top: 32px;
+	z-index: 10;
+	background: #f0f0f1;
+	padding: 10px 0;
+	margin: 0 0 20px;
+	border-bottom: 1px solid #dcdcde;
+}
+
+.bmfr-quicknav ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 18px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.bmfr-quicknav a {
+	font-size: 13px;
+	text-decoration: none;
+}
+
+@media screen and (max-width: 782px) {
+	.bmfr-quicknav {
+		top: 46px;
+	}
+}
+
+/* Card: groups a logical section so a long admin page scans in chunks. */
+.bmfr-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.04 );
+	padding: 20px 24px 24px;
+	margin: 0 0 24px;
+	scroll-margin-top: 96px;
+}
+
+.bmfr-card > h2:first-child {
+	margin-top: 0;
+}
+
+.bmfr-slot-card {
+	padding: 0;
+}
+
+.bmfr-slot-summary {
+	display: flex;
+	align-items: baseline;
+	gap: 10px;
+	flex-wrap: wrap;
+	padding: 20px 24px;
+	list-style: none;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+.bmfr-slot-summary::-webkit-details-marker {
+	display: none;
+}
+
+.bmfr-slot-summary::before {
+	content: "";
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-right: 2px;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 6px solid #50575e;
+	transition: transform 0.15s ease-in-out;
+}
+
+details[open] > .bmfr-slot-summary::before {
+	transform: rotate( 90deg );
+}
+
+.bmfr-slot-summary-meta {
+	font-size: 13px;
+	font-weight: 400;
+	color: #50575e;
+}
+
+.bmfr-slot-body {
+	padding: 0 24px 24px;
+	border-top: 1px solid #f0f0f1;
+}
+
+.bmfr-pill {
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 10px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.bmfr-pill-on {
+	background: #edfaef;
+	color: #005c12;
+}
+
+.bmfr-pill-off {
+	background: #f0f0f1;
+	color: #50575e;
+}
+
+.bmfr-health {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	margin: 8px 0 16px;
+}
+
+.bmfr-health-dot {
+	flex: 0 0 auto;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	position: relative;
+	top: 1px;
+}
+
+.bmfr-health-dot-green {
+	background: #00a32a;
+}
+
+.bmfr-health-dot-yellow {
+	background: #dba617;
+}
+
+.bmfr-health-dot-red {
+	background: #d63638;
+}
+
+.bmfr-health-dot-neutral {
+	background: #c3c4c7;
+}
+
+.bmfr-health-text {
+	font-size: 13px;
+}
+
+.bmfr-weights-grid {
+	display: grid;
+	grid-template-columns: repeat( 2, minmax( 160px, 220px ) );
+	gap: 10px 24px;
+	margin-bottom: 4px;
+}
+
+.bmfr-weight-field {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.bmfr-weight-field-label {
+	font-size: 13px;
+	color: #3c434a;
+}
+
+.bmfr-weights-total {
+	font-variant-numeric: tabular-nums;
+	color: #1d2327;
+	font-weight: 600;
+	margin: 4px 0 10px;
+}
+
+.bmfr-category-filter {
+	display: block;
+	margin-bottom: 6px;
+	max-width: 280px;
+}
+
+.bmfr-category-select {
+	min-width: 280px;
+	max-width: 100%;
+}
+
+.bmfr-exclusion-adders {
+	display: flex;
+	gap: 32px;
+	flex-wrap: wrap;
+	margin: 12px 0 20px;
+}
+
+.bmfr-post-search {
+	position: relative;
+	max-width: 420px;
+}
+
+.bmfr-post-search-results {
+	position: absolute;
+	z-index: 10;
+	top: 100%;
+	left: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	border: 1px solid #8c8f94;
+	border-top: none;
+	max-height: 220px;
+	overflow-y: auto;
+	list-style: none;
+	box-shadow: 0 2px 4px rgba( 0, 0, 0, 0.1 );
+}
+
+.bmfr-post-search-results li {
+	padding: 6px 10px;
+	cursor: pointer;
+}
+
+.bmfr-post-search-results li:hover,
+.bmfr-post-search-results li:focus {
+	background: #f0f0f1;
+}
+
+.bmfr-exclusion-table {
+	margin-bottom: 24px;
+}
+
+/* Preview page: rotation status strip above the two-column forecast. */
+.bmfr-preview-status {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 12px 24px;
+	padding: 16px 24px;
+}
+
+.bmfr-preview-status .bmfr-health {
+	margin: 0;
+}
+
+/* Preview page: the "Esegui ora" form now carries the Trend/Spotlight
+   checkboxes next to the button, so the single action reads as "rotate
+   whatever is checked" instead of an unlabeled slot it quietly inherited
+   from whichever tab happens to be open. */
+.bmfr-rotate-form {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+}
+
+.bmfr-rotate-slots {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 16px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.bmfr-rotate-slot-choice {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	white-space: nowrap;
+}
+
+/* Preview page: "Attualmente in evidenza" (narrow) next to "Prossimo turno"
+   (wide, holds the score-breakdown table) instead of one long vertical
+   stack — the two blocks differ enough in width needs that an even grid
+   would waste space on one side or crowd the other. */
+.bmfr-preview-columns {
+	display: grid;
+	grid-template-columns: minmax( 240px, 300px ) 1fr;
+	align-items: start;
+	gap: 20px;
+}
+
+@media screen and ( max-width: 960px ) {
+	.bmfr-preview-columns {
+		grid-template-columns: 1fr;
+	}
+}
+
+.bmfr-card-compact {
+	padding: 16px 20px 20px;
+}
+
+.bmfr-card-compact h2 {
+	margin-top: 0;
+	font-size: 14px;
+}
+
+.bmfr-table-actions-row {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+	margin-bottom: 4px;
+}
+
+.bmfr-table-actions-row h2 {
+	margin: 0;
+}
+
+.bmfr-candidate-count {
+	font-size: 13px;
+	font-weight: 400;
+	color: #50575e;
+}
+
+.bmfr-pill-in {
+	background: #edfaef;
+	color: #005c12;
+}
+
+.bmfr-pill-out {
+	background: #fcf0f1;
+	color: #8a2424;
+}
+
+.bmfr-pill-unchanged {
+	background: #f0f0f1;
+	color: #50575e;
+}
+
+.bmfr-forecast-table .bmfr-score-cell {
+	color: #50575e;
+	font-variant-numeric: tabular-nums;
+}
+
+.bmfr-forecast-table .bmfr-score-final {
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+}
+
+/* Confirmation modal: replaces the native confirm() dialog for destructive
+   or production-affecting form submits. */
+.bmfr-modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba( 0, 0, 0, 0.5 );
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100000;
+}
+
+/* Author-stylesheet display:flex above otherwise beats the UA default for
+   [hidden] at equal specificity, so the overlay would stay visible even
+   while hidden — this rule's higher specificity restores the hide. */
+.bmfr-modal-overlay[hidden] {
+	display: none;
+}
+
+.bmfr-modal {
+	background: #fff;
+	border-radius: 4px;
+	box-shadow: 0 4px 16px rgba( 0, 0, 0, 0.2 );
+	padding: 24px;
+	max-width: 420px;
+	width: calc( 100% - 40px );
+}
+
+.bmfr-modal-message {
+	margin: 0 0 20px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #1d2327;
+}
+
+.bmfr-modal-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+}
+
+/* Tour page: welcome card shown only right after the first-activation
+   redirect, same card chrome as the rest of the plugin so it doesn't read
+   as a separate "wizard" skin. */
+.bmfr-tour-welcome h2 {
+	margin-top: 0;
+}
+
+.bmfr-tour-table th,
+.bmfr-tour-table td {
+	vertical-align: middle;
+}
+
+.bmfr-tour-thumb-cell {
+	width: 60px;
+}
+
+.bmfr-tour-thumb,
+.bmfr-tour-thumb-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 60px;
+	height: 60px;
+	border-radius: 4px;
+	background: #f0f0f1;
+	object-fit: cover;
+}
+
+.bmfr-tour-thumb-placeholder {
+	color: #c3c4c7;
+	font-size: 22px;
+}
+
+.bmfr-tour-meta {
+	font-size: 12px;
+	color: #50575e;
+}
+
+.bmfr-tour-excerpt {
+	max-width: 420px;
+	color: #50575e;
+}
+
+.bmfr-pill-slot {
+	background: #f0f6fc;
+	color: #0a4b78;
+}
+
+/* Fade-out used when a row is removed in place after an AJAX exclusion,
+   instead of the whole Tour page reloading. */
+.bmfr-tour-row-removed {
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
+}
+
+/* Tour page: one card per cycle a post belongs to, stacked in the "Cicli"
+   column — score + manual correction on top, Mantieni/Escludi (or the
+   resolved state) underneath. */
+.bmfr-tour-cicli-cell {
+	min-width: 220px;
+}
+
+.bmfr-cycle-stack {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.bmfr-cycle-card {
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	padding: 6px 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.bmfr-cycle-card.bmfr-cycle-kept {
+	background: #edfaef;
+	border-color: #c6e9cb;
+}
+
+.bmfr-cycle-card.bmfr-cycle-excluded {
+	background: #fcf0f1;
+	border-color: #f0cccf;
+}
+
+.bmfr-cycle-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.bmfr-cycle-name {
+	font-weight: 600;
+	font-size: 12px;
+}
+
+.bmfr-cycle-score {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 12px;
+	color: #50575e;
+	font-variant-numeric: tabular-nums;
+}
+
+.bmfr-cycle-manual {
+	font-size: 9px;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+	color: #8a6d1f;
+	background: #fdf2d9;
+	padding: 1px 5px;
+	border-radius: 3px;
+	font-variant-numeric: tabular-nums;
+}
+
+/* A manual correction's sign matters as much as its size — green/red here
+   match the same pair used everywhere else a post gets pushed up
+   (bmfr-pill-on/kept) or down (bmfr-pill-out/excluded) in this plugin. */
+.bmfr-cycle-manual-pos {
+	color: #005c12;
+	background: #edfaef;
+}
+
+.bmfr-cycle-manual-neg {
+	color: #8a2424;
+	background: #fcf0f1;
+}
+
+.bmfr-score-stepper {
+	display: inline-flex;
+	gap: 2px;
+}
+
+.bmfr-cycle-card form {
+	display: inline-block;
+}
+
+.bmfr-score-step {
+	all: unset;
+	width: 16px;
+	height: 16px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #c3c4c7;
+	border-radius: 3px;
+	font-size: 11px;
+	line-height: 1;
+	cursor: pointer;
+	color: #2271b1;
+}
+
+.bmfr-score-step:hover {
+	background: #f0f6fc;
+}
+
+.bmfr-score-reset,
+.bmfr-cycle-change {
+	all: unset;
+	font-size: 10.5px;
+	color: #787c82;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.bmfr-score-reset:hover,
+.bmfr-cycle-change:hover {
+	color: #2271b1;
+}
+
+.bmfr-cycle-bottom {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 6px;
+}
+
+.bmfr-cycle-mini-btns {
+	display: flex;
+	gap: 4px;
+}
+
+.bmfr-mini-keep,
+.bmfr-mini-exclude {
+	all: unset;
+	font-size: 11px;
+	font-weight: 600;
+	padding: 2px 8px;
+	border-radius: 10px;
+	cursor: pointer;
+	color: #50575e;
+	border: 1px solid #c3c4c7;
+}
+
+.bmfr-mini-keep:hover {
+	background: #edfaef;
+	color: #005c12;
+	border-color: #005c12;
+}
+
+.bmfr-mini-exclude:hover {
+	background: #fcf0f1;
+	color: #8a2424;
+	border-color: #8a2424;
+}
+
+.bmfr-cycle-resolved-label {
+	font-size: 11px;
+	font-weight: 700;
+}
+
+.bmfr-cycle-kept .bmfr-cycle-resolved-label {
+	color: #005c12;
+}
+
+.bmfr-cycle-excluded .bmfr-cycle-resolved-label {
+	color: #8a2424;
+}
+
+.bmfr-apply-all {
+	display: flex;
+	gap: 8px;
+	margin-top: 6px;
+}
+
+.bmfr-apply-all form {
+	display: inline-block;
+}
+
+/* Diverging "how much of the dial is in use" gauge, shared by the Tour
+   page's per-card score line and the Priorità e pesi page's boosted-posts
+   list: a fixed-width track split in two at a visible center tick (0 = no
+   manual correction), each half filling from the center outward toward
+   +/-BMFR_Scoring::MANUAL_BOOST_MAX. */
+.bmfr-boost-meter {
+	display: inline-flex;
+	align-items: center;
+	width: 44px;
+	height: 8px;
+	vertical-align: middle;
+}
+
+.bmfr-boost-meter-neg,
+.bmfr-boost-meter-pos {
+	flex: 1;
+	height: 4px;
+	background: #f0f0f1;
+	overflow: hidden;
+}
+
+.bmfr-boost-meter-neg {
+	display: flex;
+	justify-content: flex-end;
+	border-radius: 2px 0 0 2px;
+}
+
+.bmfr-boost-meter-pos {
+	border-radius: 0 2px 2px 0;
+}
+
+.bmfr-boost-meter-fill {
+	height: 100%;
+}
+
+.bmfr-boost-meter-neg .bmfr-boost-meter-fill {
+	background: #b32d2e;
+}
+
+.bmfr-boost-meter-pos .bmfr-boost-meter-fill {
+	background: #007017;
+}
+
+.bmfr-boost-meter-center {
+	width: 1px;
+	height: 8px;
+	background: #c3c4c7;
+	flex-shrink: 0;
+}
+
+/* Priorità e pesi page: the two slots side by side when there's room,
+   stacked below that — same breakpoint behavior as the rest of wp-admin's
+   own responsive cards, no custom media query needed. */
+.bmfr-priority-grid {
+	display: grid;
+	grid-template-columns: repeat( auto-fit, minmax( 420px, 1fr ) );
+	gap: 20px;
+	align-items: start;
+}
+
+.bmfr-priority-slot {
+	margin-bottom: 0;
+}
+
+.bmfr-priority-slot-header {
+	margin-bottom: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.bmfr-priority-slot-header h2 {
+	margin: 0;
+}
+
+.bmfr-priority-recalc-form {
+	display: inline-block;
+	flex-shrink: 0;
+}
+
+.bmfr-priority-slot-meta {
+	margin: 0;
+	font-size: 12px;
+	color: #50575e;
+}
+
+/* The weight editor: one colored range slider per BMFR_Scoring signal,
+   feeding bmfr_save_weights (see BMFR_Settings::update_slot_weights()) —
+   deliberately NOT the combined per-slot form on Impostazioni, which would
+   reset every other field on that slot to default if only weights were
+   posted through it. Each slider's accent-color and each composition bar
+   segment's background come from the same BMFR_Priority_Page::SIGNAL_COLORS
+   PHP map via inline styles, so there is exactly one place that assigns
+   color to a signal. */
+.bmfr-weight-editor {
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	padding: 14px 16px;
+	margin-bottom: 20px;
+}
+
+.bmfr-weight-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 8px;
+}
+
+.bmfr-weight-dot {
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+
+.bmfr-weight-row-label {
+	width: 150px;
+	flex-shrink: 0;
+	font-size: 12px;
+	color: #1d2327;
+}
+
+.bmfr-weight-range {
+	flex: 1;
+	min-width: 0;
+}
+
+.bmfr-weight-pct {
+	width: 38px;
+	flex-shrink: 0;
+	text-align: right;
+	font-size: 12px;
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+	color: #1d2327;
+}
+
+.bmfr-weight-preview-bar {
+	width: 100%;
+	height: 10px;
+	margin: 12px 0 10px;
+}
+
+.bmfr-weight-editor .description {
+	margin: 0 0 10px;
+}
+
+/* Stacked composition bar: shared by the weight editor's live preview and
+   every ranked post below it, so moving a slider and reading a post's bar
+   are visibly the same language. Segment widths are inline styles set from
+   BMFR_Priority_Page::signal_contributions() (PHP) or initWeightEditor()
+   (JS) — this file only lays the track out. */
+.bmfr-composition-bar {
+	display: flex;
+	background: #f0f0f1;
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+.bmfr-composition-seg {
+	height: 100%;
+	transition: width 0.15s ease-out;
+}
+
+
+.bmfr-weight-actions {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.bmfr-weight-dirty {
+	font-size: 12px;
+	color: #8a6d1f;
+}
+
+/* Priorità e pesi: the ranking board. One table for every post in the
+   selected slot's age window (see initPriorityBoard() in admin.js). Grid
+   columns: drag handle, rank, rank in the other slot, title, signal bar,
+   shared priority, slot offset, score, reset. Shared priority uses the
+   plugin's green/red sign colors; the slot offset uses magenta so the two
+   levels never read as the same control. */
+.bmfr-board {
+	margin-top: 4px;
+	padding-bottom: 12px;
+}
+
+.bmfr-board-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.bmfr-board-header h2 {
+	margin: 0;
+}
+
+.bmfr-board-age {
+	font-size: 12px;
+	color: #50575e;
+	margin-right: 8px;
+}
+
+.bmfr-board-legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px 20px;
+	margin: 10px 0 14px;
+	font-size: 12px;
+	color: #50575e;
+}
+
+.bmfr-legend-key {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 2px;
+	margin-right: 6px;
+	vertical-align: -1px;
+}
+
+.bmfr-legend-shared {
+	background: #007017;
+}
+
+.bmfr-legend-offset {
+	background: #a23e82;
+}
+
+.bmfr-board-toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px 16px;
+	padding: 10px 0;
+	border-top: 1px solid #dcdcde;
+}
+
+.bmfr-board-seg {
+	display: inline-flex;
+}
+
+.bmfr-board-seg .button {
+	border-radius: 0;
+	margin: 0;
+}
+
+.bmfr-board-seg .button:first-child {
+	border-radius: 3px 0 0 3px;
+}
+
+.bmfr-board-seg .button:last-child {
+	border-radius: 0 3px 3px 0;
+	margin-left: -1px;
+}
+
+.bmfr-board-seg .button[aria-pressed="true"] {
+	background: #2271b1;
+	border-color: #2271b1;
+	color: #fff;
+	position: relative;
+	z-index: 1;
+}
+
+.bmfr-board-search {
+	flex: 1;
+	min-width: 180px;
+	max-width: 360px;
+}
+
+.bmfr-board-check {
+	font-size: 13px;
+	white-space: nowrap;
+}
+
+.bmfr-board-status {
+	min-height: 22px;
+	padding: 8px 12px;
+	margin-bottom: 8px;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	font-size: 13px;
+	color: #3c434a;
+}
+
+.bmfr-board-status:empty {
+	display: none;
+}
+
+.bmfr-board-status.is-error {
+	background: #fcf0f1;
+	border-color: #f0cccf;
+	color: #8a2424;
+}
+
+.bmfr-board-saving {
+	color: #646970;
+	font-size: 12px;
+}
+
+.bmfr-board-status .button-link {
+	font-size: 13px;
+}
+
+.bmfr-board-scroll {
+	overflow-x: auto;
+}
+
+.bmfr-board-list {
+	min-width: 930px;
+}
+
+.bmfr-board-row {
+	display: grid;
+	grid-template-columns: 22px 30px 76px minmax( 0, 1fr ) 120px 104px 104px 42px 26px 26px;
+	gap: 10px;
+	align-items: center;
+	padding: 5px 6px;
+	border-bottom: 1px solid #f0f0f1;
+	font-size: 13px;
+	transition: background-color 0.6s ease-out;
+}
+
+.bmfr-board-row.is-readonly {
+	grid-template-columns: 30px 76px minmax( 0, 1fr ) 120px 72px 72px 42px;
+}
+
+.bmfr-board-row:not( .bmfr-board-head ):hover {
+	background: #f6f7f7;
+}
+
+.bmfr-board-head {
+	font-size: 11px;
+	font-weight: 600;
+	color: #646970;
+	border-bottom: 1px solid #c3c4c7;
+	padding-top: 2px;
+	padding-bottom: 6px;
+}
+
+.bmfr-board-offset-head {
+	color: #a23e82;
+}
+
+.bmfr-board-row.is-cut {
+	border-bottom: 2px dashed #2271b1;
+}
+
+.bmfr-board-row.is-flash {
+	background: #fcf9e8;
+	transition: none;
+}
+
+.bmfr-board-row.is-out {
+	color: #787c82;
+}
+
+.bmfr-board-row.is-out .bmfr-board-title a {
+	color: #50575e;
+}
+
+.bmfr-board-row.is-dragging {
+	opacity: 0.5;
+}
+
+.bmfr-board-row.is-drop-before {
+	box-shadow: inset 0 2px 0 #2271b1;
+}
+
+.bmfr-board-row.is-drop-after {
+	box-shadow: inset 0 -2px 0 #2271b1;
+}
+
+.bmfr-board-handle {
+	cursor: grab;
+	color: #8c8f94;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.bmfr-board-handle:hover {
+	color: #2271b1;
+}
+
+.bmfr-board-handle .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+.bmfr-board-rank {
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+	text-align: right;
+}
+
+.bmfr-board-other {
+	font-size: 12px;
+	color: #646970;
+	font-variant-numeric: tabular-nums;
+}
+
+.bmfr-board-title {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.bmfr-board-title a {
+	text-decoration: none;
+}
+
+.bmfr-board-title a:hover {
+	text-decoration: underline;
+}
+
+.bmfr-board-pill {
+	font-size: 11px;
+	padding: 0 7px;
+	margin-left: 6px;
+	vertical-align: 1px;
+}
+
+.bmfr-board-pill-out {
+	display: inline-block;
+	border-radius: 10px;
+	background: #f0f0f1;
+	color: #50575e;
+	font-weight: 500;
+}
+
+.bmfr-board-bar {
+	position: relative;
+	height: 8px;
+}
+
+.bmfr-composition-boost {
+	background: repeating-linear-gradient( 135deg, #007017 0 3px, #68de7c 3px 6px );
+}
+
+.bmfr-composition-cut {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background: repeating-linear-gradient( 135deg, rgba( 179, 45, 46, 0.85 ) 0 3px, rgba( 255, 255, 255, 0.6 ) 3px 6px );
+}
+
+.bmfr-dial {
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+}
+
+.bmfr-dial-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	border: 1px solid #c3c4c7;
+	border-radius: 3px;
+	background: #fff;
+	color: #50575e;
+	cursor: pointer;
+}
+
+.bmfr-dial-btn .dashicons {
+	font-size: 14px;
+	width: 14px;
+	height: 14px;
+}
+
+.bmfr-dial-btn:hover {
+	border-color: #2271b1;
+	color: #2271b1;
+}
+
+.bmfr-dial-btn:focus-visible,
+.bmfr-board-icon:focus-visible {
+	outline: 2px solid #2271b1;
+	outline-offset: 1px;
+}
+
+.bmfr-dial-offset .bmfr-dial-btn:hover {
+	border-color: #a23e82;
+	color: #a23e82;
+}
+
+.bmfr-dial-value {
+	min-width: 44px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+	color: #8c8f94;
+}
+
+.bmfr-dial-shared .bmfr-dial-value.is-pos {
+	color: #005c12;
+}
+
+.bmfr-dial-shared .bmfr-dial-value.is-neg {
+	color: #8a2424;
+}
+
+.bmfr-dial-offset .bmfr-dial-value.is-pos,
+.bmfr-dial-offset .bmfr-dial-value.is-neg {
+	color: #a23e82;
+}
+
+.bmfr-board-num {
+	text-align: right;
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+}
+
+.bmfr-board-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: #8c8f94;
+	cursor: pointer;
+}
+
+.bmfr-board-reset:hover,
+.bmfr-board-exclude:hover {
+	color: #b32d2e;
+}
+
+.bmfr-board-empty,
+.bmfr-board-loading {
+	color: #646970;
+	padding: 16px 6px;
+	margin: 0;
+}
+
+@media ( prefers-reduced-motion: reduce ) {
+	.bmfr-board-row,
+	.bmfr-composition-seg {
+		transition: none;
+	}
+}
+
+/* Exclusion on the ranking board: an eye-slash per row opens an inline
+   confirmation strip right under that row (no modal), with the two reaches
+   spelled out. Excluded rows get an eye to readmit them. */
+.bmfr-board-exclude:hover {
+	color: #b32d2e;
+}
+
+.bmfr-board-exclude[aria-expanded="true"] {
+	color: #b32d2e;
+}
+
+.bmfr-board-readmit:hover {
+	color: #007017;
+}
+
+.bmfr-board-pill-out.is-excluded {
+	background: #fcf0f1;
+	color: #8a2424;
+}
+
+.bmfr-board-confirm {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 8px 16px;
+	padding: 10px 12px 10px 38px;
+	background: #fcf0f1;
+	border-bottom: 1px solid #f0cccf;
+	font-size: 13px;
+	color: #3c434a;
+}
+
+.bmfr-board-confirm-text {
+	min-width: 0;
+	max-width: 70ch;
+}
+
+.bmfr-board-confirm-warn {
+	display: block;
+	margin-top: 2px;
+	color: #8a2424;
+}
+
+.bmfr-board-confirm-actions {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.bmfr-board.is-busy .bmfr-board-list {
+	opacity: 0.6;
+	pointer-events: none;
+}
