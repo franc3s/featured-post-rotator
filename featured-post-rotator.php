@@ -1,20 +1,25 @@
 <?php
 /**
- * Plugin Name: Featured Post Rotator
- * Description: Ruota automaticamente i post in evidenza del blog in slot configurabili (etichetta, tag, numero di post), assegnando e togliendo il tag di ogni slot secondo criteri editoriali pianificati (recency, cooldown, bilanciamento categoria, engagement, calendario stagionale), con storico delle rotazioni e notifiche email/Slack. Il template del tema non viene mai modificato.
- * Version: 1.22.3
- * Requires PHP: 7.4
- * Author: franc3s
- * License: GPL-2.0-or-later
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: featured-post-rotator
+ * Plugin Name:       Featured Post Rotator
+ * Plugin URI:        https://github.com/franc3s/featured-post-rotator
+ * Description:       Rotates your featured posts in configurable tag-based slots, on a schedule and by editorial criteria (recency, cooldown, category balance, engagement, seasonal calendar), with rotation history and email/Slack notifications. Theme templates are never modified.
+ * Version:           1.22.4
+ * Requires at least: 5.3
+ * Tested up to:      7.1
+ * Requires PHP:      7.4
+ * Author:            franc3s
+ * Author URI:        https://github.com/franc3s
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       featured-post-rotator
+ * Domain Path:       /languages
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFR_VERSION', '1.22.3' );
+define( 'BMFR_VERSION', '1.22.4' );
 define( 'BMFR_DB_VERSION', '1.2.0' );
 define( 'BMFR_PLUGIN_FILE', __FILE__ );
 define( 'BMFR_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );

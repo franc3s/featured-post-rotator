@@ -1,5 +1,10 @@
 # Featured Post Rotator
 
+[![Latest release](https://img.shields.io/github/v/release/franc3s/featured-post-rotator)](https://github.com/franc3s/featured-post-rotator/releases/latest)
+![WordPress 5.3+](https://img.shields.io/badge/WordPress-5.3%2B-21759b)
+![PHP 7.4+](https://img.shields.io/badge/PHP-7.4%2B-777bb4)
+[![License: GPL v2+](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)](LICENSE)
+
 A WordPress plugin that keeps a blog's "featured" blocks fresh by rotating which posts carry a tag, on a schedule, according to editorial criteria. Your theme keeps showing "posts with tag X" as it does today; the plugin only decides which posts have that tag. Theme templates are never modified.
 
 > The admin interface is currently in Italian. An English source with an Italian translation is planned.
@@ -17,12 +22,12 @@ A WordPress plugin that keeps a blog's "featured" blocks fresh by rotating which
 
 ## Requirements
 
-- WordPress with standard post tags
+- WordPress 5.3 or later (tested up to 7.1), with standard post tags
 - PHP 7.4 or later
 
 ## Installation
 
-1. Download the release zip, or zip the plugin folder so that it contains `featured-post-rotator/featured-post-rotator.php`.
+1. Download `featured-post-rotator-vX.Y.Z.zip` from the [latest release](https://github.com/franc3s/featured-post-rotator/releases/latest). Don't use GitHub's "Source code" zip: its folder name doesn't match the plugin, so WordPress would install it as a different plugin.
 2. In WordPress, go to Plugins → Add New → Upload Plugin, then upload and activate it.
 3. Open **Rotazione Articoli → Impostazioni → Slot** and choose a tag for each slot. A slot without a tag never rotates.
 4. Use **Anteprima** to check the next rotation before enabling the automatic (cron) rotation on a slot.
@@ -37,6 +42,12 @@ Deactivating the plugin keeps all data. **Deleting** it from the Plugins screen 
 
 - `bmfr_rotation_applied( $slot_key, $added, $removed, $trigger )`: fired whenever a slot's tags actually change.
 - `bmfr_purge_page_cache`: filter. Return `false` to skip the built-in page-cache purge.
+
+## Changelog, contributing, security
+
+- What changed in each version: [CHANGELOG.md](CHANGELOG.md)
+- Bugs and ideas: [open an issue](https://github.com/franc3s/featured-post-rotator/issues/new/choose). See [CONTRIBUTING.md](.github/CONTRIBUTING.md) before sending a pull request.
+- Security problems: report them privately, as described in [SECURITY.md](.github/SECURITY.md).
 
 ## License
 
