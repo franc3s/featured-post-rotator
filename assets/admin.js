@@ -629,10 +629,85 @@
 			return map;
 		}
 
-		function otherSlot( k ) {
+		function otherSlots( k ) {
 			return slotKeys.filter( function ( x ) {
-				return x !== k;
-			} )[ 0 ];
+				return x !== k && D.slots[ x ];
+			} );
+		}
+
+		// Short, distinct label prefixes for the "Altri slot" column when
+		// there are 3+ slots: the first letter, lengthened only for slots
+		// whose prefix would collide (e.g. "Spo" / "Spe"). Computed across
+		// every slot so a slot keeps the same abbreviation in every view.
+		function slotAbbrevs() {
+			var names = {};
+			var len   = {};
+			slotKeys.forEach( function ( sk ) {
+				var label = D.slots[ sk ] ? String( D.slots[ sk ].label ) : sk;
+				names[ sk ] = label.replace( /\s+/g, '' ) || sk;
+				len[ sk ]   = 1;
+			} );
+			function abbr( sk ) {
+				return names[ sk ].slice( 0, len[ sk ] );
+			}
+			for ( var guard = 0; guard < 40; guard++ ) {
+				var groups = {};
+				slotKeys.forEach( function ( sk ) {
+					var key = abbr( sk ).toLowerCase();
+					( groups[ key ] = groups[ key ] || [] ).push( sk );
+				} );
+				var grew = false;
+				Object.keys( groups ).forEach( function ( key ) {
+					if ( groups[ key ].length > 1 ) {
+						groups[ key ].forEach( function ( sk ) {
+							if ( len[ sk ] < names[ sk ].length ) {
+								len[ sk ]++;
+								grew = true;
+							}
+						} );
+					}
+				} );
+				if ( ! grew ) {
+					break;
+				}
+			}
+			var out = {};
+			slotKeys.forEach( function ( sk ) {
+				var a = abbr( sk );
+				out[ sk ] = a.charAt( 0 ).toUpperCase() + a.slice( 1 );
+			} );
+			return out;
+		}
+
+		// The "other slot" cell. With exactly one other slot (two slots in
+		// all) it is the same markup as always: initial + rank, or
+		// "fuori gara". With more, one compact entry per other slot.
+		function otherCell( p, others, pos, abbrevs ) {
+			if ( others.length < 2 ) {
+				var o = others[ 0 ];
+				var m = o && pos[ o ] ? pos[ o ][ p.id ] : null;
+				return '<span class="bmfr-board-other">' + ( m ? esc( D.slots[ o ].label.charAt( 0 ) ) + m : ( o && p.s[ o ] ? esc( S.out ) : '' ) ) + '</span>';
+			}
+			var items = [];
+			var full  = [];
+			others.forEach( function ( o ) {
+				var m = pos[ o ] ? pos[ o ][ p.id ] : null;
+				if ( m ) {
+					items.push( '<span class="bmfr-board-other-item">' + esc( abbrevs[ o ] ) + m + '</span>' );
+					full.push( D.slots[ o ].label + ' ' + m );
+				} else if ( p.s[ o ] ) {
+					items.push( '<span class="bmfr-board-other-item is-out">' + esc( abbrevs[ o ] ) + '–</span>' );
+					full.push( D.slots[ o ].label + ': ' + S.out );
+				}
+			} );
+			if ( ! items.length ) {
+				return '<span class="bmfr-board-other"></span>';
+			}
+			var text = full.join( ' · ' );
+			return '<span class="bmfr-board-other is-many" title="' + esc( text ) + '">' +
+				'<span class="bmfr-board-other-items" aria-hidden="true">' + items.join( '' ) + '</span>' +
+				'<span class="screen-reader-text">' + esc( text ) + '</span>' +
+				'</span>';
 		}
 
 		function dial( p, act, value, label ) {
@@ -677,7 +752,10 @@
 
 		function render() {
 			var k     = view;
-			var o     = otherSlot( k );
+			var others  = otherSlots( k );
+			var many    = others.length > 1;
+			var abbrevs = many ? slotAbbrevs() : {};
+			var o     = others[ 0 ];
 			var pos   = positions();
 			var term  = search ? search.value.trim().toLowerCase() : '';
 			var only  = onlyPrio && onlyPrio.checked;
@@ -715,7 +793,7 @@
 			var html = '<div class="bmfr-board-row bmfr-board-head' + ( D.canEdit ? '' : ' is-readonly' ) + '" aria-hidden="true">' +
 				( D.canEdit ? '<span></span>' : '' ) +
 				'<span>#</span>' +
-				'<span>' + esc( D.slots[ o ] ? D.slots[ o ].label : '' ) + '</span>' +
+				'<span>' + esc( many ? S.otherSlots : ( D.slots[ o ] ? D.slots[ o ].label : '' ) ) + '</span>' +
 				'<span>' + esc( S.title ) + ' · ' + esc( sprintf( S.inWindow, windowCount ) ) + '</span>' +
 				'<span>' + esc( S.signals ) + '</span>' +
 				'<span>' + esc( S.shared ) + '</span>' +
@@ -731,7 +809,6 @@
 			rows.forEach( function ( p ) {
 				var isOut = ! ( p.s[ k ] && p.s[ k ].sig );
 				var n     = pos[ k ][ p.id ];
-				var m     = o && pos[ o ] ? pos[ o ][ p.id ] : null;
 				var f     = finalScore( p, k );
 				var cls   = 'bmfr-board-row';
 				var pills = '';
@@ -778,7 +855,7 @@
 				html += '<div class="' + cls + '" data-id="' + p.id + '">' +
 					( D.canEdit ? ( isOut ? '<span></span>' : '<span class="bmfr-board-handle" title="' + esc( S.drag ) + '" aria-hidden="true"><span class="dashicons dashicons-menu"></span></span>' ) : '' ) +
 					'<span class="bmfr-board-rank">' + ( isOut ? '—' : n ) + '</span>' +
-					'<span class="bmfr-board-other">' + ( m ? esc( D.slots[ o ].label.charAt( 0 ) ) + m : ( p.s[ o ] ? esc( S.out ) : '' ) ) + '</span>' +
+					otherCell( p, others, pos, abbrevs ) +
 					'<span class="bmfr-board-title"><a href="' + esc( p.url || '#' ) + '">' + esc( p.t ) + '</a>' + pills + '</span>' +
 					( isOut ? '<span></span>' : bar( p, k ) ) +
 					dial( p, 'shared', p.p, S.shared ) +
@@ -802,6 +879,7 @@
 				}
 			} );
 
+			list.classList.toggle( 'has-many-others', many );
 			list.innerHTML = html;
 		}
 

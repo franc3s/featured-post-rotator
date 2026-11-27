@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Featured Post Rotator
  * Description: Ruota automaticamente i post in evidenza del blog in slot configurabili (etichetta, tag, numero di post), assegnando e togliendo il tag di ogni slot secondo criteri editoriali pianificati (recency, cooldown, bilanciamento categoria, engagement, calendario stagionale), con storico delle rotazioni e notifiche email/Slack. Il template del tema non viene mai modificato.
- * Version: 1.22.2
+ * Version: 1.22.3
  * Requires PHP: 7.4
  * Author: franc3s
  * License: GPL-2.0-or-later
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFR_VERSION', '1.22.2' );
+define( 'BMFR_VERSION', '1.22.3' );
 define( 'BMFR_DB_VERSION', '1.2.0' );
 define( 'BMFR_PLUGIN_FILE', __FILE__ );
 define( 'BMFR_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );

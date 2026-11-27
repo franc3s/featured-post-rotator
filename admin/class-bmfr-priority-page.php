@@ -296,6 +296,7 @@ class BMFR_Priority_Page {
 				'stays'        => __( '%1$s resta %2$s', 'featured-post-rotator' ),
 				'moves'        => __( '%1$s %2$s → %3$s', 'featured-post-rotator' ),
 				'out'          => __( 'fuori gara', 'featured-post-rotator' ),
+				'otherSlots'   => __( 'Altri slot', 'featured-post-rotator' ),
 				'saved'        => __( 'Salvato.', 'featured-post-rotator' ),
 				'saving'       => __( 'Salvataggio…', 'featured-post-rotator' ),
 				'saveFailed'   => __( 'Salvataggio non riuscito: la modifica è stata annullata. %s', 'featured-post-rotator' ),

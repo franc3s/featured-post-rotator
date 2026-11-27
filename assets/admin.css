@@ -1054,6 +1054,36 @@ details[open] > .bmfr-slot-summary::before {
 	font-variant-numeric: tabular-nums;
 }
 
+/* 3+ slots: one compact entry per other slot ("T3 Spo5 Spe–"), wrapping
+   onto a second line when needed. The column is wider only in this case,
+   so the two-slot board keeps its exact layout. */
+.bmfr-board-list.has-many-others {
+	min-width: 966px;
+}
+
+.bmfr-board-list.has-many-others .bmfr-board-row {
+	grid-template-columns: 22px 30px 112px minmax( 0, 1fr ) 120px 104px 104px 42px 26px 26px;
+}
+
+.bmfr-board-list.has-many-others .bmfr-board-row.is-readonly {
+	grid-template-columns: 30px 112px minmax( 0, 1fr ) 120px 72px 72px 42px;
+}
+
+.bmfr-board-other-items {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 7px;
+	line-height: 1.4;
+}
+
+.bmfr-board-other-item {
+	white-space: nowrap;
+}
+
+.bmfr-board-other-item.is-out {
+	color: #a7aaad;
+}
+
 .bmfr-board-title {
 	min-width: 0;
 	overflow: hidden;
