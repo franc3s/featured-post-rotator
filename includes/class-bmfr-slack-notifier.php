@@ -30,7 +30,7 @@ class BMFR_Slack_Notifier {
 
 		$fallback_text = sprintf(
 			/* translators: 1: blog title, 2: slot label, 3: formatted date/time the rotation will run */
-			__( '%1$s — :bell: La rotazione di %2$s è in programma per il %3$s, se non intervieni prima.', 'featured-post-rotator' ),
+			__( '%1$s — :bell: The rotation of %2$s is scheduled for %3$s, unless you step in first.', 'featured-post-rotator' ),
 			get_bloginfo( 'name' ),
 			$slot_label,
 			wp_date( 'd/m/Y H:i', $due_at )
@@ -50,7 +50,7 @@ class BMFR_Slack_Notifier {
 		$text = sprintf(
 			"*%1\$s*\n%2\$s",
 			self::site_title(),
-			__( ':white_check_mark: Test riuscito: il webhook di Featured Post Rotator è collegato correttamente a questo canale.', 'featured-post-rotator' )
+			__( ':white_check_mark: Test successful: the Featured Post Rotator webhook is correctly connected to this channel.', 'featured-post-rotator' )
 		);
 
 		return self::post( $text );
@@ -80,7 +80,7 @@ class BMFR_Slack_Notifier {
 					'type' => 'mrkdwn',
 					'text' => sprintf(
 						/* translators: 1: slot label, 2: formatted date/time the rotation will run */
-						__( ":bell: La rotazione di *%1\$s* è in programma per il *%2\$s*, se non intervieni prima.", 'featured-post-rotator' ),
+						__( ':bell: The rotation of *%1$s* is scheduled for *%2$s*, unless you step in first.', 'featured-post-rotator' ),
 						self::escape( $slot_label ),
 						wp_date( 'd/m/Y H:i', $due_at )
 					),
@@ -98,7 +98,7 @@ class BMFR_Slack_Notifier {
 				$blocks[] = array( 'type' => 'divider' );
 				$blocks[] = array(
 					'type' => 'section',
-					'text' => array( 'type' => 'mrkdwn', 'text' => __( '*In entrata*', 'featured-post-rotator' ) ),
+					'text' => array( 'type' => 'mrkdwn', 'text' => __( '*Coming in*', 'featured-post-rotator' ) ),
 				);
 
 				foreach ( $preview['to_add'] as $post_id ) {
@@ -108,7 +108,7 @@ class BMFR_Slack_Notifier {
 
 			if ( ! empty( $preview['to_remove'] ) ) {
 				$blocks[] = array( 'type' => 'divider' );
-				$lines    = array( __( '*In uscita*', 'featured-post-rotator' ) );
+				$lines    = array( __( '*Going out*', 'featured-post-rotator' ) );
 
 				foreach ( $preview['to_remove'] as $post_id ) {
 					$lines[] = '• ' . self::format_post_link( $post_id );
@@ -128,7 +128,7 @@ class BMFR_Slack_Notifier {
 				'type' => 'mrkdwn',
 				'text' => sprintf(
 					/* translators: %s: URL of the admin preview page for this slot */
-					__( 'Per escludere un candidato o rivedere chi entrerà: <%s|Apri Anteprima>', 'featured-post-rotator' ),
+					__( 'To exclude a candidate or review who will come in: <%s|Open Preview>', 'featured-post-rotator' ),
 					esc_url( $preview_url )
 				),
 			),
@@ -158,7 +158,7 @@ class BMFR_Slack_Notifier {
 					'type' => 'mrkdwn',
 					'text' => sprintf(
 						/* translators: 1: final score, 2: number of times this post has previously rotated into this slot */
-						__( "Punteggio: *%1\$s* · Rotazioni precedenti: *%2\$d*", 'featured-post-rotator' ),
+						__( 'Score: *%1$s* · Previous rotations: *%2$d*', 'featured-post-rotator' ),
 						null !== $score ? $score : '—',
 						$count
 					),

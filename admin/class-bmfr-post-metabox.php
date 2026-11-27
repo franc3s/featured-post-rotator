@@ -27,7 +27,7 @@ class BMFR_Post_Metabox {
 
 		add_meta_box(
 			'bmfr_exclusions',
-			__( 'Rotazione Articoli — Esclusioni', 'featured-post-rotator' ),
+			__( 'Post Rotator — Exclusions', 'featured-post-rotator' ),
 			array( __CLASS__, 'render' ),
 			'post',
 			'side',
@@ -45,11 +45,11 @@ class BMFR_Post_Metabox {
 		<p>
 			<label>
 				<input type="checkbox" name="bmfr_exclude_post" value="1" <?php checked( $post_excluded ); ?> />
-				<?php esc_html_e( 'Escludi questo post dalle rotazioni (Trend Posts / Spotlight)', 'featured-post-rotator' ); ?>
+				<?php esc_html_e( 'Exclude this post from rotations (Trend Posts / Spotlight)', 'featured-post-rotator' ); ?>
 			</label>
 		</p>
 		<?php if ( ! empty( $categories ) ) : ?>
-			<p><strong><?php esc_html_e( 'Escludi intere categorie ovunque:', 'featured-post-rotator' ); ?></strong></p>
+			<p><strong><?php esc_html_e( 'Exclude entire categories everywhere:', 'featured-post-rotator' ); ?></strong></p>
 			<?php foreach ( $categories as $category ) : ?>
 				<?php $cat_excluded = in_array( (int) $category->term_id, array_map( 'absint', (array) $global['excluded_categories'] ), true ); ?>
 				<p style="margin:4px 0;">
@@ -58,7 +58,7 @@ class BMFR_Post_Metabox {
 						<?php
 						printf(
 							/* translators: %s: category name */
-							esc_html__( '"%s" — incide su tutti i post della categoria, non solo su questo', 'featured-post-rotator' ),
+							esc_html__( '"%s" — affects every post in the category, not just this one', 'featured-post-rotator' ),
 							esc_html( $category->name )
 						);
 						?>
@@ -66,9 +66,9 @@ class BMFR_Post_Metabox {
 				</p>
 			<?php endforeach; ?>
 		<?php else : ?>
-			<p class="description"><?php esc_html_e( 'Nessuna categoria assegnata.', 'featured-post-rotator' ); ?></p>
+			<p class="description"><?php esc_html_e( 'No category assigned.', 'featured-post-rotator' ); ?></p>
 		<?php endif; ?>
-		<p class="description"><?php esc_html_e( 'Un post o una categoria esclusi non entrano più nelle rotazioni; se già in evidenza vengono rimossi e sostituiti subito al salvataggio.', 'featured-post-rotator' ); ?></p>
+		<p class="description"><?php esc_html_e( 'An excluded post or category no longer enters rotations; if already featured, it is removed and replaced as soon as you save.', 'featured-post-rotator' ); ?></p>
 		<?php
 	}
 

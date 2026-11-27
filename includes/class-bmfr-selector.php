@@ -145,7 +145,7 @@ class BMFR_Selector {
 
 			$warnings[] = sprintf(
 				/* translators: 1: number of posts excluded, 2: comma-separated list of matched seasonal labels */
-				__( '%1$d post esclusi perché fuori stagione (%2$s).', 'featured-post-rotator' ),
+				__( '%1$d posts excluded because out of season (%2$s).', 'featured-post-rotator' ),
 				count( $out_of_season ),
 				implode( ', ', array_unique( array_values( $out_of_season ) ) )
 			);
@@ -171,7 +171,7 @@ class BMFR_Selector {
 
 			$warnings[] = sprintf(
 				/* translators: %d: number of posts excluded because they are already featured in another slot */
-				__( '%d post esclusi perché già in evidenza in un altro slot nello stesso momento.', 'featured-post-rotator' ),
+				__( '%d posts excluded because already featured in another slot at the same time.', 'featured-post-rotator' ),
 				count( $cross_slot_conflicts )
 			);
 		}
@@ -200,7 +200,7 @@ class BMFR_Selector {
 
 			$warnings[] = sprintf(
 				/* translators: 1: eligible candidates before relaxation, 2: posts required for the slot */
-				__( 'Pool eleggibile insufficiente (%1$d candidati per %2$d posizioni): cooldown rilassato per raggiungere il numero richiesto.', 'featured-post-rotator' ),
+				__( 'Not enough eligible posts (%1$d candidates for %2$d places): cooldown relaxed to reach the required number.', 'featured-post-rotator' ),
 				count( $pool ) - count( $cooldown_ids ),
 				$count_needed
 			);

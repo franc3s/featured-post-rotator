@@ -2,6 +2,14 @@
 
 All notable changes to Featured Post Rotator. Versions follow [semantic versioning](https://semver.org/).
 
+## 1.23.0 — 2026-11-27
+
+- **English admin interface.** All interface strings (about 315) are now written in English in the code, with a complete Italian translation in `languages/featured-post-rotator-it_IT.po/.mo`. Sites in Italian see the same text as before.
+- Added the translation template `languages/featured-post-rotator.pot`.
+- The two history notes written by "Swap" and by exclusions are now translatable too.
+- Priority page: decimal numbers use the site language's decimal separator (they always used a comma before).
+- No change in behavior.
+
 ## 1.22.4 — 2026-11-27
 
 - Plugin header: English description (Italian translation in `languages/`), `Plugin URI`, `Author URI`, `Requires at least: 5.3`, `Tested up to: 7.1`, `Domain Path`.

@@ -4,7 +4,7 @@ Tags: featured posts, rotation, tags, editorial, scheduling
 Requires at least: 5.3
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.22.4
+Stable tag: 1.23.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,7 +30,7 @@ Many themes show a featured block as "posts with tag X". Featured Post Rotator k
 
 **Safe on live sites.** Rotations are locked per slot, so they never run twice in parallel. After a change the plugin purges the page cache of common cache plugins. Data upgrades run automatically, once.
 
-The admin interface is currently in Italian. An English interface with an Italian translation is planned.
+The admin interface is in English, with a complete Italian translation included. Other languages can be added with a `.po`/`.mo` file in `languages/` (template: `languages/featured-post-rotator.pot`).
 
 = External services =
 
@@ -81,6 +81,11 @@ Yes. Enable the cron for a slot and set its cadence. You can still get an email 
 
 == Changelog ==
 
+= 1.23.0 =
+* The admin interface is now in English, with a complete Italian translation included. Sites in Italian see no change.
+* Translation template `languages/featured-post-rotator.pot`.
+* Priority page: decimal numbers follow the site language.
+
 = 1.22.4 =
 * Plugin header: English description (with Italian translation), plugin and author URIs, minimum and tested WordPress versions.
 * Added `readme.txt`.
@@ -95,6 +100,9 @@ Yes. Enable the cron for a slot and set its cadence. You can still get an email 
 * First release under the name Featured Post Rotator, with configurable slots and no site-specific defaults.
 
 == Upgrade Notice ==
+
+= 1.23.0 =
+English admin interface with Italian translation. No change in behavior.
 
 = 1.22.4 =
 Documentation and metadata only. No change in behavior.

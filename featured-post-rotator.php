@@ -3,7 +3,7 @@
  * Plugin Name:       Featured Post Rotator
  * Plugin URI:        https://github.com/franc3s/featured-post-rotator
  * Description:       Rotates your featured posts in configurable tag-based slots, on a schedule and by editorial criteria (recency, cooldown, category balance, engagement, seasonal calendar), with rotation history and email/Slack notifications. Theme templates are never modified.
- * Version:           1.22.4
+ * Version:           1.23.0
  * Requires at least: 5.3
  * Tested up to:      7.1
  * Requires PHP:      7.4
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFR_VERSION', '1.22.4' );
+define( 'BMFR_VERSION', '1.23.0' );
 define( 'BMFR_DB_VERSION', '1.2.0' );
 define( 'BMFR_PLUGIN_FILE', __FILE__ );
 define( 'BMFR_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );

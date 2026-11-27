@@ -18,9 +18,9 @@ foreach ( $slot_data as $ranking ) {
 }
 ?>
 <div class="wrap bmfr-wrap">
-	<h1><?php esc_html_e( 'Priorità e pesi', 'featured-post-rotator' ); ?></h1>
+	<h1><?php esc_html_e( 'Priority and weights', 'featured-post-rotator' ); ?></h1>
 	<p class="bmfr-lede">
-		<?php esc_html_e( 'Sopra, i pesi dei quattro segnali per ciascuno slot. Sotto, tutti gli articoli nella finestra dello slot, in ordine di punteggio. Ogni modifica riordina subito la classifica. Un punteggio più alto è una probabilità più alta di essere scelto alla prossima rotazione, non una garanzia.', 'featured-post-rotator' ); ?>
+		<?php esc_html_e( 'Above, the weights of the four signals for each slot. Below, all posts in the slot\'s window, ordered by score. Every change reorders the ranking immediately. A higher score means a higher chance of being picked at the next rotation, not a guarantee.', 'featured-post-rotator' ); ?>
 	</p>
 
 	<div class="bmfr-priority-grid">
@@ -42,7 +42,7 @@ foreach ( $slot_data as $ranking ) {
 						<?php
 						printf(
 							/* translators: 1: posts eligible now, 2: posts in the slot's age window */
-							esc_html__( '%1$d eleggibili ora su %2$d nella finestra', 'featured-post-rotator' ),
+							esc_html__( '%1$d eligible now out of %2$d in the window', 'featured-post-rotator' ),
 							(int) $ranking['candidate_count'],
 							(int) $ranking['window_count']
 						);
@@ -79,11 +79,11 @@ foreach ( $slot_data as $ranking ) {
 						<?php endforeach; ?>
 					</div>
 
-					<p class="description"><?php esc_html_e( 'I pesi si normalizzano da soli: la barra mostra la proporzione reale. Spostando uno slider la classifica sotto si aggiorna subito, ma la rotazione usa i nuovi pesi solo dopo il salvataggio.', 'featured-post-rotator' ); ?></p>
+					<p class="description"><?php esc_html_e( 'Weights normalize themselves: the bar shows the real proportion. Moving a slider updates the ranking below immediately, but the rotation uses the new weights only after you save.', 'featured-post-rotator' ); ?></p>
 
 					<div class="bmfr-weight-actions">
-						<?php submit_button( __( 'Salva pesi', 'featured-post-rotator' ), 'secondary', 'submit', false ); ?>
-						<span class="bmfr-weight-dirty" data-weight-dirty hidden><?php esc_html_e( 'Modifiche non salvate', 'featured-post-rotator' ); ?></span>
+						<?php submit_button( __( 'Save weights', 'featured-post-rotator' ), 'secondary', 'submit', false ); ?>
+						<span class="bmfr-weight-dirty" data-weight-dirty hidden><?php esc_html_e( 'Unsaved changes', 'featured-post-rotator' ); ?></span>
 					</div>
 				</form>
 			</section>
@@ -92,7 +92,7 @@ foreach ( $slot_data as $ranking ) {
 
 	<section class="bmfr-card bmfr-board" data-priority-board>
 		<header class="bmfr-board-header">
-			<h2><?php esc_html_e( 'Classifica e priorità', 'featured-post-rotator' ); ?></h2>
+			<h2><?php esc_html_e( 'Ranking and priority', 'featured-post-rotator' ); ?></h2>
 			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" class="bmfr-priority-recalc-form">
 				<input type="hidden" name="action" value="bmfr_priority_recalculate" />
 				<input type="hidden" name="slot" value="all" />
@@ -101,29 +101,29 @@ foreach ( $slot_data as $ranking ) {
 					<?php
 					printf(
 						/* translators: %s: relative time since the candidate data was computed */
-						esc_html__( 'Dati calcolati %s fa', 'featured-post-rotator' ),
+						esc_html__( 'Data calculated %s ago', 'featured-post-rotator' ),
 						esc_html( human_time_diff( $computed_at ) )
 					);
 					?>
 				</span>
-				<button type="submit" class="button button-small"><?php esc_html_e( 'Ricalcola', 'featured-post-rotator' ); ?></button>
+				<button type="submit" class="button button-small"><?php esc_html_e( 'Recalculate', 'featured-post-rotator' ); ?></button>
 			</form>
 		</header>
 
 		<div class="bmfr-board-legend">
-			<span><b class="bmfr-legend-key bmfr-legend-shared"></b><?php esc_html_e( 'Comune: vale per tutti e due gli slot, fino a ±0,30', 'featured-post-rotator' ); ?></span>
-			<span><b class="bmfr-legend-key bmfr-legend-offset"></b><?php esc_html_e( 'Solo questo slot: ritocco fino a ±0,15', 'featured-post-rotator' ); ?></span>
-			<span><?php esc_html_e( 'Trascina una riga con la maniglia per collocarla: la correzione necessaria viene calcolata da sola.', 'featured-post-rotator' ); ?></span>
+			<span><b class="bmfr-legend-key bmfr-legend-shared"></b><?php esc_html_e( 'Shared: applies to both slots, up to ±0.30', 'featured-post-rotator' ); ?></span>
+			<span><b class="bmfr-legend-key bmfr-legend-offset"></b><?php esc_html_e( 'This slot only: adjustment up to ±0.15', 'featured-post-rotator' ); ?></span>
+			<span><?php esc_html_e( 'Drag a row by its handle to place it: the correction needed is calculated automatically.', 'featured-post-rotator' ); ?></span>
 		</div>
 
 		<div class="bmfr-board-toolbar">
-			<span class="bmfr-board-seg" role="group" aria-label="<?php esc_attr_e( 'Ordina per slot', 'featured-post-rotator' ); ?>">
+			<span class="bmfr-board-seg" role="group" aria-label="<?php esc_attr_e( 'Sort by slot', 'featured-post-rotator' ); ?>">
 				<?php foreach ( $slots as $slot_key => $slot ) : ?>
 					<button type="button" class="button" data-board-view="<?php echo esc_attr( $slot_key ); ?>" aria-pressed="<?php echo $slot_key === $first_slot ? 'true' : 'false'; ?>">
 						<?php
 						printf(
 							/* translators: 1: slot label, 2: number of featured positions */
-							esc_html__( '%1$s · %2$d posti', 'featured-post-rotator' ),
+							esc_html__( '%1$s · %2$d places', 'featured-post-rotator' ),
 							esc_html( $slot['label'] ),
 							(int) $slot['count']
 						);
@@ -131,17 +131,17 @@ foreach ( $slot_data as $ranking ) {
 					</button>
 				<?php endforeach; ?>
 			</span>
-			<label class="screen-reader-text" for="bmfr-board-search"><?php esc_html_e( 'Cerca per titolo', 'featured-post-rotator' ); ?></label>
-			<input type="search" id="bmfr-board-search" class="bmfr-board-search" placeholder="<?php esc_attr_e( 'Cerca per titolo', 'featured-post-rotator' ); ?>" data-board-search />
-			<label class="bmfr-board-check"><input type="checkbox" id="bmfr-board-only-priority" data-board-only-priority /> <?php esc_html_e( 'Solo con priorità', 'featured-post-rotator' ); ?></label>
-			<label class="bmfr-board-check"><input type="checkbox" id="bmfr-board-show-out" data-board-show-out checked /> <?php esc_html_e( 'Mostra fuori gara', 'featured-post-rotator' ); ?></label>
+			<label class="screen-reader-text" for="bmfr-board-search"><?php esc_html_e( 'Search by title', 'featured-post-rotator' ); ?></label>
+			<input type="search" id="bmfr-board-search" class="bmfr-board-search" placeholder="<?php esc_attr_e( 'Search by title', 'featured-post-rotator' ); ?>" data-board-search />
+			<label class="bmfr-board-check"><input type="checkbox" id="bmfr-board-only-priority" data-board-only-priority /> <?php esc_html_e( 'Only with priority', 'featured-post-rotator' ); ?></label>
+			<label class="bmfr-board-check"><input type="checkbox" id="bmfr-board-show-out" data-board-show-out checked /> <?php esc_html_e( 'Show out of the running', 'featured-post-rotator' ); ?></label>
 		</div>
 
 		<div class="bmfr-board-status" data-board-status role="status" aria-live="polite"></div>
 
 		<div class="bmfr-board-scroll">
 			<div class="bmfr-board-list" data-board-list>
-				<p class="bmfr-board-loading"><?php esc_html_e( 'Caricamento della classifica…', 'featured-post-rotator' ); ?></p>
+				<p class="bmfr-board-loading"><?php esc_html_e( 'Loading the ranking…', 'featured-post-rotator' ); ?></p>
 			</div>
 		</div>
 

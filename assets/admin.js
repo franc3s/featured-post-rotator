@@ -575,11 +575,11 @@
 			if ( Math.abs( v ) < 0.005 ) {
 				return '0';
 			}
-			return ( v > 0 ? '+' : '−' ) + Math.abs( v ).toFixed( 2 ).replace( '.', ',' );
+			return ( v > 0 ? '+' : '−' ) + Math.abs( v ).toFixed( 2 ).replace( '.', D.decimal || '.' );
 		}
 
 		function num( v ) {
-			return v.toFixed( 2 ).replace( '.', ',' );
+			return v.toFixed( 2 ).replace( '.', D.decimal || '.' );
 		}
 
 		function base( p, k ) {

@@ -1,0 +1,1398 @@
+# Copyright (C) 2026 franc3s
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Featured Post Rotator 1.23.0\n"
+"Report-Msgid-Bugs-To: https://github.com/franc3s/featured-post-rotator/issues\n"
+"POT-Creation-Date: 2026-11-27 00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: franc3s\n"
+"Language-Team: LANGUAGE\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: featured-post-rotator\n"
+
+#. Plugin Name of the plugin
+msgid "Featured Post Rotator"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/franc3s/featured-post-rotator"
+msgstr ""
+
+#. Description of the plugin
+msgid "Rotates your featured posts in configurable tag-based slots, on a schedule and by editorial criteria (recency, cooldown, category balance, engagement, seasonal calendar), with rotation history and email/Slack notifications. Theme templates are never modified."
+msgstr ""
+
+#. Author of the plugin
+msgid "franc3s"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://github.com/franc3s"
+msgstr ""
+
+#: admin/class-bmfr-admin.php:67 admin/class-bmfr-admin.php:68
+msgid "Post Rotator"
+msgstr ""
+
+#: admin/class-bmfr-admin.php:75
+msgid "Settings"
+msgstr ""
+
+#: admin/class-bmfr-admin.php:76
+msgid "Candidate tour"
+msgstr ""
+
+#: admin/class-bmfr-admin.php:77
+msgid "Preview"
+msgstr ""
+
+#: admin/class-bmfr-admin.php:78 admin/views/priority-page.php:21
+msgid "Priority and weights"
+msgstr ""
+
+#: admin/class-bmfr-admin.php:79
+msgid "History"
+msgstr ""
+
+#: admin/class-bmfr-admin.php:80 admin/views/settings-page.php:381
+msgid "Seasonal calendar"
+msgstr ""
+
+#: admin/class-bmfr-admin.php:81
+msgid "Exclusions"
+msgstr ""
+
+#: admin/class-bmfr-admin.php:122 admin/class-bmfr-calendar-page.php:10
+#: admin/class-bmfr-exclusions-page.php:10 admin/class-bmfr-preview-page.php:10
+#: admin/class-bmfr-priority-page.php:46 admin/class-bmfr-settings-page.php:10
+#: admin/class-bmfr-tour-page.php:37
+msgid "You do not have permission to access this page."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:145
+msgid "Confirm"
+msgstr ""
+
+#: admin/class-bmfr-admin.php:146 admin/class-bmfr-priority-page.php:304
+#: admin/class-bmfr-priority-page.php:319
+msgid "Cancel"
+msgstr ""
+
+#: admin/class-bmfr-admin.php:154 admin/class-bmfr-admin.php:196
+#: admin/class-bmfr-admin.php:236 admin/class-bmfr-admin.php:258
+#: admin/class-bmfr-admin.php:282 admin/class-bmfr-admin.php:309
+#: admin/class-bmfr-admin.php:380 admin/class-bmfr-admin.php:411
+#: admin/class-bmfr-admin.php:470 admin/class-bmfr-admin.php:494
+#: admin/class-bmfr-admin.php:526 admin/class-bmfr-admin.php:548
+#: admin/class-bmfr-admin.php:570 admin/class-bmfr-admin.php:592
+#: admin/class-bmfr-admin.php:612 admin/class-bmfr-admin.php:636
+#: admin/class-bmfr-admin.php:658 admin/class-bmfr-admin.php:681
+#: admin/class-bmfr-admin.php:703 admin/class-bmfr-admin.php:728
+#: admin/class-bmfr-admin.php:762 admin/class-bmfr-admin.php:800
+#: admin/class-bmfr-admin.php:853 admin/class-bmfr-admin.php:971
+msgid "Insufficient permissions."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:161 admin/class-bmfr-admin.php:387
+#: admin/class-bmfr-admin.php:735 includes/class-bmfr-rotator.php:24
+msgid "Invalid slot."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:804 admin/class-bmfr-admin.php:857
+#: admin/class-bmfr-admin.php:976
+msgid "Session expired, please reload the page."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:810 admin/class-bmfr-admin.php:865
+#: admin/class-bmfr-admin.php:982
+msgid "Invalid post."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:869
+msgid "Invalid operation."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:997
+msgid "Invalid cycle."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1248
+msgid "Settings saved."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1249
+msgid "Rotation completed."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1250
+msgid "Rotation completed for only some of the selected slots: check the history for details."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1251
+msgid "Select at least one slot before running the rotation."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1252
+msgid "Slots saved."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1253
+msgid "Slots saved. You changed a slot's tag: posts that had the previous tag keep it, so remove it by hand if they should no longer appear in the block. The next rotation will use the new tag."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1254
+msgid "Tag not found: choose one of the existing tags. No changes saved."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1255
+msgid "Two slots cannot use the same tag. No changes saved."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1256
+msgid "At least one slot must remain. No changes saved."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1257
+msgid "You have reached the maximum number of slots. No changes saved."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1258
+msgid "Preview calculated."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1259
+msgid "An error occurred during the rotation."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1260
+msgid "A rotation of this slot is already running (probably the cron): nothing was changed. Try again in a few minutes."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1261
+msgid "Exclusion added. If something was already featured and has been removed, the slot was immediately topped up with a replacement."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1262
+msgid "Post replaced in the slot with a new candidate. It was not excluded: it can still be picked in future rotations."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1263
+msgid "Exclusion removed."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1264
+msgid "\"Keep\" applied to every cycle of this post still to be decided."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1265
+msgid "Cycle kept."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1266
+msgid "Cycle excluded. If the post was already featured there, the slot was immediately topped up with a replacement."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1267
+msgid "Cycle decision undone: it is back among those to review."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1268
+msgid "Score adjusted manually."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1269
+msgid "Manual score adjustment removed."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1270
+msgid "Weights saved."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1271
+msgid "Ranking recalculated."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1272
+msgid "Test message sent to Slack: check the channel connected to the webhook."
+msgstr ""
+
+#: admin/class-bmfr-admin.php:1273
+msgid "Sending failed. Check that the webhook URL is correct and saved."
+msgstr ""
+
+#: admin/class-bmfr-history-list-table.php:29
+msgid "Date"
+msgstr ""
+
+#: admin/class-bmfr-history-list-table.php:30 admin/views/preview-page.php:117
+#: admin/views/settings-page.php:31 admin/views/settings-page.php:50
+#: admin/views/settings-page.php:119
+msgid "Slot"
+msgstr ""
+
+#: admin/class-bmfr-history-list-table.php:31 admin/views/preview-page.php:200
+msgid "Post"
+msgstr ""
+
+#: admin/class-bmfr-history-list-table.php:32
+msgid "Action"
+msgstr ""
+
+#: admin/class-bmfr-history-list-table.php:33 admin/views/preview-page.php:202
+msgid "Score"
+msgstr ""
+
+#: admin/class-bmfr-history-list-table.php:34
+msgid "Trigger"
+msgstr ""
+
+#: admin/class-bmfr-history-list-table.php:35
+msgid "Details"
+msgstr ""
+
+#: admin/class-bmfr-history-list-table.php:85
+msgid "In"
+msgstr ""
+
+#: admin/class-bmfr-history-list-table.php:86
+msgid "Out"
+msgstr ""
+
+#: admin/class-bmfr-history-list-table.php:87
+msgid "Notice"
+msgstr ""
+
+#: admin/class-bmfr-history-list-table.php:101
+msgid "JSON"
+msgstr ""
+
+#: admin/class-bmfr-post-metabox.php:30 admin/views/exclusions-page.php:12
+msgid "Post Rotator — Exclusions"
+msgstr ""
+
+#: admin/class-bmfr-post-metabox.php:48
+msgid "Exclude this post from rotations (Trend Posts / Spotlight)"
+msgstr ""
+
+#: admin/class-bmfr-post-metabox.php:52
+msgid "Exclude entire categories everywhere:"
+msgstr ""
+
+#. translators: %s: category name
+#: admin/class-bmfr-post-metabox.php:61
+#, php-format
+msgid "\"%s\" — affects every post in the category, not just this one"
+msgstr ""
+
+#: admin/class-bmfr-post-metabox.php:69
+msgid "No category assigned."
+msgstr ""
+
+#: admin/class-bmfr-post-metabox.php:71
+msgid "An excluded post or category no longer enters rotations; if already featured, it is removed and replaced as soon as you save."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:64 admin/views/preview-page.php:203
+#: admin/views/settings-page.php:18
+msgid "Recency"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:65 admin/views/settings-page.php:19
+msgid "Category balance"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:66 admin/views/preview-page.php:205
+msgid "Engagement"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:67 admin/views/settings-page.php:21
+msgid "Seasonal fit"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:286
+msgctxt "ranking column"
+msgid "Post"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:287
+msgid "Signals"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:288
+msgid "Shared"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:289
+#, php-format
+msgid "%s only"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:290
+msgctxt "ranking column"
+msgid "Score"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:291
+#, php-format
+msgid "%d in the window"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:292
+#, php-format
+msgid "featured in %s"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:293
+#, php-format
+msgid "%s: decrease"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:294
+#, php-format
+msgid "%s: increase"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:295
+msgid "Reset this post's priority"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:296
+msgid "Drag to move"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:297
+#, php-format
+msgid "%1$s stays %2$s"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:298
+#, php-format
+msgid "%1$s %2$s → %3$s"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:299
+msgid "out of the running"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:300
+msgid "Other slots"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:301
+msgid "Saved."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:302
+msgid "Saving…"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:303
+#, php-format
+msgid "Saving failed: the change was undone. %s"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:305
+msgid "Change undone."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:306
+#, php-format
+msgid "Only the %s adjustment was used: the other slots do not change."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:307
+msgid "The slot adjustment was not enough: the shared priority was corrected too, so the other slots change as well."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:308
+#, php-format
+msgid "Closest position reachable within the current limits: %d."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:309
+msgid "Shared priority already at its limit (±0.30)."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:310
+msgid "Slot adjustment already at its limit (±0.15)."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:311
+msgid "No posts match the filters."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:312
+msgid "No posts in this slot's window."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:313
+#, php-format
+msgid "priority %s"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:314 admin/class-bmfr-tour-page.php:393
+#: admin/views/preview-page.php:20
+msgid "Exclude"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:315
+#, php-format
+msgid "Exclude “%s”?"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:316
+#, php-format
+msgid "Only from %s"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:317
+msgid "From all slots"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:318
+msgid "It is featured now: it is removed immediately and replaced with another post. Undoing the exclusion does not bring it back until the next rotation."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:320 admin/views/tour-page.php:116
+msgid "Readmit"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:321
+msgid "Remove the exclusion: the post can be picked again"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:322
+msgid "The whole category is excluded: readmit it from the Exclusions page or from Settings"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:323
+msgid "Updating the ranking…"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:324
+#, php-format
+msgid "“%1$s” excluded from %2$s."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:325
+#, php-format
+msgid "“%s” excluded from all slots."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:326
+msgid "It was featured: removed and replaced."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:327
+#, php-format
+msgid "“%s” readmitted: it can be picked again."
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:328
+#, php-format
+msgid "Operation failed. %s"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:330
+msgid "featured now"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:331
+msgid "latest published post"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:332
+msgid "excluded from this slot"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:333
+msgid "excluded from all slots"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:334
+msgid "category excluded"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:335
+msgid "out of season"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:336
+msgid "featured in another slot"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:337
+msgid "cooldown"
+msgstr ""
+
+#: admin/class-bmfr-priority-page.php:338
+msgid "not eligible now"
+msgstr ""
+
+#. translators: 1: shared priority, 2: this slot's offset, both signed
+#: admin/class-bmfr-tour-page.php:352
+#, php-format
+msgid "Shared %1$s · this slot's adjustment %2$s. +/− here only changes the adjustment; the shared priority is set in Priority and weights."
+msgstr ""
+
+#: admin/class-bmfr-tour-page.php:365
+msgid "reset"
+msgstr ""
+
+#: admin/class-bmfr-tour-page.php:392
+msgid "Keep"
+msgstr ""
+
+#: admin/class-bmfr-tour-page.php:393
+msgid "Exclude this post from this cycle? If it is already featured here, it is removed immediately."
+msgstr ""
+
+#: admin/class-bmfr-tour-page.php:399
+msgid "excluded ✕"
+msgstr ""
+
+#: admin/class-bmfr-tour-page.php:399
+msgid "kept ✓"
+msgstr ""
+
+#: admin/class-bmfr-tour-page.php:401
+msgid "swap"
+msgstr ""
+
+#: admin/views/calendar-page.php:13
+msgid "Post Rotator — Seasonal calendar"
+msgstr ""
+
+#: admin/views/calendar-page.php:15
+msgid "If a post matches an entry (by keyword in the title or by tag) and today's date is outside the given window, the post is automatically excluded from all slots. If today's date is inside the window, the post instead gets an \"on topic\" bonus in its score — the weight of this bonus is set for each slot on the Settings page."
+msgstr ""
+
+#: admin/views/calendar-page.php:25
+msgid "Label"
+msgstr ""
+
+#: admin/views/calendar-page.php:26
+msgid "Title keywords (comma-separated)"
+msgstr ""
+
+#: admin/views/calendar-page.php:27
+msgid "Tags (slugs, comma-separated)"
+msgstr ""
+
+#: admin/views/calendar-page.php:28
+msgid "Start (MM-DD)"
+msgstr ""
+
+#: admin/views/calendar-page.php:29
+msgid "End (MM-DD)"
+msgstr ""
+
+#: admin/views/calendar-page.php:30 admin/views/settings-page.php:51
+#: admin/views/settings-page.php:304
+msgid "Active"
+msgstr ""
+
+#: admin/views/calendar-page.php:31
+msgid "Delete"
+msgstr ""
+
+#: admin/views/calendar-page.php:38
+msgid "New entry"
+msgstr ""
+
+#: admin/views/calendar-page.php:49
+msgid "Empty rows (without a label) are ignored: use them to add new entries."
+msgstr ""
+
+#: admin/views/calendar-page.php:51
+msgid "Save calendar"
+msgstr ""
+
+#: admin/views/exclusions-page.php:15
+msgid "Global exclusions"
+msgstr ""
+
+#: admin/views/exclusions-page.php:16
+msgid "These add to each slot's own exclusions (set on the Settings tab): a post or category excluded here will never be a candidate in either Trend Posts or Spotlight."
+msgstr ""
+
+#: admin/views/exclusions-page.php:23
+msgid "Search post by title"
+msgstr ""
+
+#: admin/views/exclusions-page.php:24
+msgid "Type at least 2 characters…"
+msgstr ""
+
+#: admin/views/exclusions-page.php:27
+msgid "Exclude this post everywhere"
+msgstr ""
+
+#: admin/views/exclusions-page.php:34
+msgid "Exclude a category everywhere"
+msgstr ""
+
+#: admin/views/exclusions-page.php:40
+msgid "Exclude category"
+msgstr ""
+
+#: admin/views/exclusions-page.php:47
+msgid "Posts excluded everywhere"
+msgstr ""
+
+#: admin/views/exclusions-page.php:48 admin/views/preview-page.php:204
+msgid "Category"
+msgstr ""
+
+#: admin/views/exclusions-page.php:49
+msgid "Published on"
+msgstr ""
+
+#: admin/views/exclusions-page.php:68 admin/views/exclusions-page.php:98
+#: admin/views/settings-page.php:161
+msgid "Remove"
+msgstr ""
+
+#: admin/views/exclusions-page.php:79
+msgid "Categories excluded everywhere"
+msgstr ""
+
+#: admin/views/exclusions-page.php:80
+msgid "No. of posts"
+msgstr ""
+
+#: admin/views/history-page.php:12
+msgid "Post Rotator — History"
+msgstr ""
+
+#: admin/views/history-page.php:17
+msgid "All slots"
+msgstr ""
+
+#: admin/views/history-page.php:22
+msgid "Filter"
+msgstr ""
+
+#: admin/views/preview-page.php:16
+msgid "Exclude this post from all future rotations? If it is already featured, it is removed immediately."
+msgstr ""
+
+#: admin/views/preview-page.php:29
+msgid "Replace this post in the slot with another candidate? It is not excluded: it can come back in future rotations."
+msgstr ""
+
+#: admin/views/preview-page.php:34
+msgid "Swap"
+msgstr ""
+
+#: admin/views/preview-page.php:45
+msgid "Automatic rotation is turned off for this slot. You can still run it manually below."
+msgstr ""
+
+#: admin/views/preview-page.php:48
+msgid "Due now: it will run at the next hourly cron check."
+msgstr ""
+
+#. translators: 1: formatted date/time of the next rotation, 2: relative time until then
+#: admin/views/preview-page.php:53
+#, php-format
+msgid "Next rotation: %1$s (in %2$s)."
+msgstr ""
+
+#: admin/views/preview-page.php:77
+msgid "IN"
+msgstr ""
+
+#: admin/views/preview-page.php:78
+msgid "OUT"
+msgstr ""
+
+#: admin/views/preview-page.php:79
+msgid "UNCHANGED"
+msgstr ""
+
+#: admin/views/preview-page.php:83
+msgid "Post Rotator — Preview"
+msgstr ""
+
+#. translators: %s: link to the Slot section of the settings page
+#: admin/views/preview-page.php:116
+#, php-format
+msgid "This slot has no tag yet, so it cannot rotate. Choose one in the %s section of the Settings."
+msgstr ""
+
+#: admin/views/preview-page.php:124
+#, php-format
+msgid "Confirm the real rotation for: %s? Tags will be changed on live posts."
+msgstr ""
+
+#: admin/views/preview-page.php:129
+msgid "Slots to rotate"
+msgstr ""
+
+#: admin/views/preview-page.php:137
+msgid "Run now (real)"
+msgstr ""
+
+#: admin/views/preview-page.php:143
+msgid "Currently featured"
+msgstr ""
+
+#: admin/views/preview-page.php:165
+msgid "Next round"
+msgstr ""
+
+#. translators: %d: number of eligible candidates found
+#: admin/views/preview-page.php:171
+#, php-format
+msgid "(%d eligible candidates)"
+msgstr ""
+
+#: admin/views/preview-page.php:183 admin/views/priority-page.php:109
+msgid "Recalculate"
+msgstr ""
+
+#: admin/views/preview-page.php:201
+msgid "Status"
+msgstr ""
+
+#: admin/views/preview-page.php:206
+msgid "Seasonality"
+msgstr ""
+
+#: admin/views/preview-page.php:212
+msgid "No eligible candidates at the moment."
+msgstr ""
+
+#. translators: %+.2f: the manual correction applied on the Tour page, with its sign
+#: admin/views/preview-page.php:227
+msgid "Adjusted by hand in the Tour: %+.2f"
+msgstr ""
+
+#: admin/views/preview-page.php:229
+msgid "manual"
+msgstr ""
+
+#: admin/views/priority-page.php:23
+msgid "Above, the weights of the four signals for each slot. Below, all posts in the slot's window, ordered by score. Every change reorders the ranking immediately. A higher score means a higher chance of being picked at the next rotation, not a guarantee."
+msgstr ""
+
+#. translators: 1: posts eligible now, 2: posts in the slot's age window
+#: admin/views/priority-page.php:45
+#, php-format
+msgid "%1$d eligible now out of %2$d in the window"
+msgstr ""
+
+#: admin/views/priority-page.php:82
+msgid "Weights normalize themselves: the bar shows the real proportion. Moving a slider updates the ranking below immediately, but the rotation uses the new weights only after you save."
+msgstr ""
+
+#: admin/views/priority-page.php:85
+msgid "Save weights"
+msgstr ""
+
+#: admin/views/priority-page.php:86
+msgid "Unsaved changes"
+msgstr ""
+
+#: admin/views/priority-page.php:95
+msgid "Ranking and priority"
+msgstr ""
+
+#. translators: %s: relative time since the candidate data was computed
+#: admin/views/priority-page.php:104
+#, php-format
+msgid "Data calculated %s ago"
+msgstr ""
+
+#: admin/views/priority-page.php:114
+msgid "Shared: applies to both slots, up to ±0.30"
+msgstr ""
+
+#: admin/views/priority-page.php:115
+msgid "This slot only: adjustment up to ±0.15"
+msgstr ""
+
+#: admin/views/priority-page.php:116
+msgid "Drag a row by its handle to place it: the correction needed is calculated automatically."
+msgstr ""
+
+#: admin/views/priority-page.php:120
+msgid "Sort by slot"
+msgstr ""
+
+#. translators: 1: slot label, 2: number of featured positions
+#: admin/views/priority-page.php:126
+#, php-format
+msgid "%1$s · %2$d places"
+msgstr ""
+
+#: admin/views/priority-page.php:134 admin/views/priority-page.php:135
+msgid "Search by title"
+msgstr ""
+
+#: admin/views/priority-page.php:136
+msgid "Only with priority"
+msgstr ""
+
+#: admin/views/priority-page.php:137
+msgid "Show out of the running"
+msgstr ""
+
+#: admin/views/priority-page.php:144
+msgid "Loading the ranking…"
+msgstr ""
+
+#: admin/views/settings-page.php:20
+msgid "Engagement (comments)"
+msgstr ""
+
+#: admin/views/settings-page.php:25
+msgid "Post Rotator — Settings"
+msgstr ""
+
+#: admin/views/settings-page.php:26
+msgid "Slots start turned off. Use the Preview tab to calculate a preview (dry run) and to run a supervised real rotation before turning on the automatic cron below."
+msgstr ""
+
+#: admin/views/settings-page.php:28
+msgid "Jump to section"
+msgstr ""
+
+#: admin/views/settings-page.php:30 admin/views/settings-page.php:40
+msgid "Schedule status"
+msgstr ""
+
+#: admin/views/settings-page.php:32
+msgid "Slack notice"
+msgstr ""
+
+#: admin/views/settings-page.php:52
+msgid "Cadence"
+msgstr ""
+
+#: admin/views/settings-page.php:53
+msgid "Last run"
+msgstr ""
+
+#: admin/views/settings-page.php:54
+msgid "Next expected run"
+msgstr ""
+
+#: admin/views/settings-page.php:64
+msgid "No"
+msgstr ""
+
+#: admin/views/settings-page.php:64
+msgid "Yes"
+msgstr ""
+
+#. translators: %d: number of days
+#: admin/views/settings-page.php:71
+#, php-format
+msgid "every %d day"
+msgid_plural "every %d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/views/settings-page.php:76
+msgid "Never"
+msgstr ""
+
+#: admin/views/settings-page.php:80
+msgid "Off"
+msgstr ""
+
+#: admin/views/settings-page.php:82
+msgid "Due: it will run at the next hourly cron check"
+msgstr ""
+
+#. translators: %s: formatted date/time of the next hourly cron tick
+#: admin/views/settings-page.php:97
+#, php-format
+msgid "The hourly cron check is scheduled for %s. The actual run depends on site traffic (or on a real server-side cron calling wp-cron.php): on a low-traffic site the tick can slip past the scheduled time."
+msgstr ""
+
+#: admin/views/settings-page.php:101
+msgid "No hourly cron check is scheduled at the moment."
+msgstr ""
+
+#: admin/views/settings-page.php:109
+msgid "Preferred run time"
+msgstr ""
+
+#: admin/views/settings-page.php:111
+msgid "Save time"
+msgstr ""
+
+#: admin/views/settings-page.php:113
+msgid "If set, the cadence is counted in calendar days from the last run and the rotation always runs at this time (the hourly cron check still runs every hour). Leave the field empty to run as soon as it is due, at any time — the previous behavior."
+msgstr ""
+
+#: admin/views/settings-page.php:121
+msgid "Each slot is a block of featured posts: the plugin adds its tag to the chosen posts and removes it from those that leave. The theme shows the posts with that tag in the block. A slot without a tag does not rotate."
+msgstr ""
+
+#: admin/views/settings-page.php:126
+msgid "— No tag —"
+msgstr ""
+
+#: admin/views/settings-page.php:158
+msgid "Name"
+msgstr ""
+
+#: admin/views/settings-page.php:159
+msgid "Tag"
+msgstr ""
+
+#: admin/views/settings-page.php:160
+msgid "Posts"
+msgstr ""
+
+#: admin/views/settings-page.php:168
+msgid "Slot name"
+msgstr ""
+
+#: admin/views/settings-page.php:172
+msgid "Slot tag"
+msgstr ""
+
+#: admin/views/settings-page.php:177
+msgid "Number of posts in the slot"
+msgstr ""
+
+#. translators: %s: slot label
+#: admin/views/settings-page.php:182
+#, php-format
+msgid "Remove %s"
+msgstr ""
+
+#: admin/views/settings-page.php:190
+msgid "New slot (leave empty to add none)"
+msgstr ""
+
+#: admin/views/settings-page.php:190
+msgid "New slot name"
+msgstr ""
+
+#: admin/views/settings-page.php:193
+msgid "New slot tag"
+msgstr ""
+
+#: admin/views/settings-page.php:198
+msgid "Number of posts in the new slot"
+msgstr ""
+
+#: admin/views/settings-page.php:206
+msgid "The code under the name identifies the slot and never changes: you can rename the slot and change its tag and number of posts without losing settings, priorities and history."
+msgstr ""
+
+#: admin/views/settings-page.php:207
+msgid "Removing a slot takes it out of the rotation and the pages, but keeps its data: if you create a slot with the same name again, it gets them back. The tag stays on the posts that already have it."
+msgstr ""
+
+#: admin/views/settings-page.php:208
+msgid "If you change a slot's tag, posts with the previous tag keep it: remove it by hand if needed."
+msgstr ""
+
+#: admin/views/settings-page.php:211
+msgid "Save slots"
+msgstr ""
+
+#: admin/views/settings-page.php:216
+msgid "Slack pre-rotation notice"
+msgstr ""
+
+#: admin/views/settings-page.php:218
+msgid "A purely informational message, sent once per cycle when the given notice time is left before the automatic rotation of an active slot: \"this will happen unless you step in\". There are no action buttons in the message — to exclude a candidate or review who will come in, go to the Preview page, linked in the message itself."
+msgstr ""
+
+#: admin/views/settings-page.php:227
+msgid "Slack Webhook URL"
+msgstr ""
+
+#: admin/views/settings-page.php:231
+msgid "URL of the webhook created in Slack (Slack app → Incoming Webhooks → turn on → choose the dedicated channel → copy the URL). The channel is chosen in Slack when you create the webhook, not here. Leave empty to turn off the notice."
+msgstr ""
+
+#: admin/views/settings-page.php:236
+msgid "Notice time (hours before the rotation)"
+msgstr ""
+
+#: admin/views/settings-page.php:239
+msgid "How long before the due rotation the notice arrives: it should leave enough time to act on the Preview page."
+msgstr ""
+
+#: admin/views/settings-page.php:244
+msgid "Save Slack settings"
+msgstr ""
+
+#: admin/views/settings-page.php:251
+msgid "Send test notification"
+msgstr ""
+
+#. translators: %d: number of posts shown in the slot
+#: admin/views/settings-page.php:281
+#, php-format
+msgid "%d posts, no tag: choose one in the Slots section"
+msgstr ""
+
+#. translators: 1: number of posts shown in the slot, 2: WordPress tag slug
+#: admin/views/settings-page.php:287
+#, php-format
+msgid "%1$d posts, tag %2$s"
+msgstr ""
+
+#: admin/views/settings-page.php:308
+msgid "Turn on automatic cron rotation for this slot"
+msgstr ""
+
+#: admin/views/settings-page.php:313
+msgid "Cadence (days)"
+msgstr ""
+
+#: admin/views/settings-page.php:317
+msgid "Cooldown (days)"
+msgstr ""
+
+#: admin/views/settings-page.php:320
+msgid "A post that has already been in this slot cannot come back before N days."
+msgstr ""
+
+#: admin/views/settings-page.php:324
+msgid "Minimum post age (days)"
+msgstr ""
+
+#: admin/views/settings-page.php:328
+msgid "Recency half-life (days)"
+msgstr ""
+
+#: admin/views/settings-page.php:331
+msgid "Lower = strongly favors recent posts; higher = flatter score between old and new posts."
+msgstr ""
+
+#: admin/views/settings-page.php:335
+msgid "Maximum age"
+msgstr ""
+
+#: admin/views/settings-page.php:338
+msgid "Relative: no older than N days from today"
+msgstr ""
+
+#: admin/views/settings-page.php:339
+msgid "Absolute: no older than a fixed date"
+msgstr ""
+
+#: admin/views/settings-page.php:340
+msgid "No limit"
+msgstr ""
+
+#: admin/views/settings-page.php:343
+msgid "Days (used if \"Relative\")"
+msgstr ""
+
+#: admin/views/settings-page.php:348
+msgid "Date (used if \"Absolute\", format YYYY-MM-DD)"
+msgstr ""
+
+#: admin/views/settings-page.php:352
+msgid "Posts published before this threshold are never candidates for this slot."
+msgstr ""
+
+#: admin/views/settings-page.php:356
+msgid "Signal weights"
+msgstr ""
+
+#: admin/views/settings-page.php:376
+msgid "Weights are normalized automatically (they do not need to add up to 1). If you set them all to 0, the plugin uses equal weights."
+msgstr ""
+
+#. translators: %s: link to the Calendario stagionale admin page
+#: admin/views/settings-page.php:380
+#, php-format
+msgid "\"Seasonal fit\" rewards posts on topic with the current occasion, defined in the %s."
+msgstr ""
+
+#: admin/views/settings-page.php:388
+msgid "Excluded categories"
+msgstr ""
+
+#: admin/views/settings-page.php:390
+msgid "Filter categories…"
+msgstr ""
+
+#. translators: %s: link to the Esclusioni admin page
+#: admin/views/settings-page.php:402
+#, php-format
+msgid "Posts in these categories will never be candidates for this slot (in addition to the %s)."
+msgstr ""
+
+#: admin/views/settings-page.php:403
+msgid "global exclusions"
+msgstr ""
+
+#: admin/views/settings-page.php:410
+msgid "Excluded posts (IDs)"
+msgstr ""
+
+#: admin/views/settings-page.php:416
+msgid "Email notification recipients"
+msgstr ""
+
+#: admin/views/settings-page.php:419
+msgid "One address per line. Shared by all slots: saving from any of the forms updates this list for all of them."
+msgstr ""
+
+#: admin/views/settings-page.php:423
+msgid "Name in the email subject"
+msgstr ""
+
+#: admin/views/settings-page.php:426
+msgid "Shown in square brackets at the start of the subject, for example \"[Name] Rotation …\". Empty = site title. Shared by all slots."
+msgstr ""
+
+#. translators: %s: slot label
+#: admin/views/settings-page.php:431
+#, php-format
+msgid "Save \"%s\" settings"
+msgstr ""
+
+#: admin/views/tour-page.php:16
+msgid "To review"
+msgstr ""
+
+#: admin/views/tour-page.php:17
+msgid "Candidates"
+msgstr ""
+
+#: admin/views/tour-page.php:18
+msgid "Excluded"
+msgstr ""
+
+#: admin/views/tour-page.php:22
+msgid "No posts to review: you have gone through every possible candidate — great job!"
+msgstr ""
+
+#: admin/views/tour-page.php:23
+msgid "No posts confirmed with \"Keep\" yet."
+msgstr ""
+
+#: admin/views/tour-page.php:24
+msgid "No posts excluded so far."
+msgstr ""
+
+#: admin/views/tour-page.php:28
+msgid "Post Rotator — Candidate tour"
+msgstr ""
+
+#: admin/views/tour-page.php:32
+msgid "Welcome to Post Rotator"
+msgstr ""
+
+#: admin/views/tour-page.php:33
+msgid "Before turning on automatic rotation, work through this list until it is empty: for each cycle a post belongs to, mark \"Keep\" (it is fine) or \"Exclude\" (it must never appear there). It is a one-off — once all of a post's cycles are decided, the row moves to the matching tab and never comes back to the ones to review."
+msgstr ""
+
+#: admin/views/tour-page.php:35
+msgid "I'm done, go to Settings"
+msgstr ""
+
+#: admin/views/tour-page.php:39
+msgid "All posts that fall within the age window configured for Trend Posts and/or Spotlight, regardless of seasonality, cooldown or current assignment to a cycle: the complete list, not just what can be picked right now. Decide \"Keep\" or \"Exclude\" for each cycle — a post can be right for one and not for the other — to keep future interventions to a minimum."
+msgstr ""
+
+#: admin/views/tour-page.php:71
+msgid "Image"
+msgstr ""
+
+#: admin/views/tour-page.php:72
+msgid "Title"
+msgstr ""
+
+#: admin/views/tour-page.php:73
+msgid "Cycles"
+msgstr ""
+
+#: admin/views/tour-page.php:74
+msgid "Summary"
+msgstr ""
+
+#: admin/views/tour-page.php:126
+msgid "Keep all"
+msgstr ""
+
+#: admin/views/tour-page.php:127
+msgid "Exclude all"
+msgstr ""
+
+#: admin/views/tour-page.php:127
+msgid "Exclude this post from all cycles not yet decided? If it is already featured in one of those cycles, it is removed immediately."
+msgstr ""
+
+#: admin/views/tour-page.php:153
+msgid "« Previous"
+msgstr ""
+
+#: admin/views/tour-page.php:154
+msgid "Next »"
+msgstr ""
+
+#: includes/class-bmfr-cron.php:239
+msgid "No slot has the cron turned on at the moment: there is nothing to check."
+msgstr ""
+
+#: includes/class-bmfr-cron.php:248
+msgid "The hourly tick is not scheduled in WP-Cron: automatic rotation will not start. Check for cache/security plugins that clear scheduled cron events, or reactivate the plugin."
+msgstr ""
+
+#: includes/class-bmfr-cron.php:260
+msgid "The hourly tick has never run yet. If the plugin was activated recently this is normal: it will turn green after the first run."
+msgstr ""
+
+#: includes/class-bmfr-cron.php:267
+msgid "DISABLE_WP_CRON is set in wp-config.php and the tick has never run: you need a real server-side cron that calls wp-cron.php, otherwise the rotation will never run."
+msgstr ""
+
+#: includes/class-bmfr-cron.php:268
+msgid "The tick should already have run but has never executed anything: check that wp-cron.php is reachable (not blocked by cache/firewall) and that the site receives traffic."
+msgstr ""
+
+#: includes/class-bmfr-cron.php:277
+msgid "DISABLE_WP_CRON is set and the last tick was more than two hours ago: the real server-side cron that should call wp-cron.php is not running (or not often enough)."
+msgstr ""
+
+#: includes/class-bmfr-cron.php:284
+msgid "The hourly tick runs regularly: the tools that make the cron run are set up correctly."
+msgstr ""
+
+#. translators: %s: hours since the last tick actually ran
+#: includes/class-bmfr-cron.php:292
+#, php-format
+msgid "The last tick was about %s ago: probably not enough traffic to trigger the WordPress pseudo-cron. Consider a real server-side cron on wp-cron.php for punctual timing."
+msgstr ""
+
+#. translators: %s: hours since the last tick actually ran
+#: includes/class-bmfr-cron.php:299
+#, php-format
+msgid "The last tick ran %s ago: the cron is no longer running. Check DISABLE_WP_CRON, a real server-side cron, and whether cache/firewall block wp-cron.php."
+msgstr ""
+
+#. translators: 1: site/brand name (Impostazioni, defaults to the site title), 2: slot label, 3: number of changes
+#: includes/class-bmfr-notifier.php:26
+#, php-format
+msgid "[%1$s] Rotation \"%2$s\" — %3$d changes"
+msgstr ""
+
+#. translators: 1: slot label, 2: trigger (cron/manual)
+#: includes/class-bmfr-notifier.php:34
+#, php-format
+msgid "Rotation completed for %1$s (trigger: %2$s)."
+msgstr ""
+
+#: includes/class-bmfr-notifier.php:39
+msgid "Added"
+msgstr ""
+
+#: includes/class-bmfr-notifier.php:42
+msgid "Removed"
+msgstr ""
+
+#: includes/class-bmfr-notifier.php:46
+msgid "See the full history"
+msgstr ""
+
+#: includes/class-bmfr-notifier.php:61
+msgid "None"
+msgstr ""
+
+#: includes/class-bmfr-notifier.php:76
+msgid "score"
+msgstr ""
+
+#: includes/class-bmfr-notifier.php:80
+msgid "edit"
+msgstr ""
+
+#: includes/class-bmfr-rotator.php:30
+msgid "This slot has no tag yet: choose one in Settings → Slots."
+msgstr ""
+
+#: includes/class-bmfr-rotator.php:39
+msgid "A rotation of this slot is already running: try again in a few minutes."
+msgstr ""
+
+#: includes/class-bmfr-rotator.php:77
+msgid "Slot turned off, cron run skipped."
+msgstr ""
+
+#. translators: 1: eligible candidates, 2: posts required, 3: slot label
+#: includes/class-bmfr-rotator.php:88
+#, php-format
+msgid "Only %1$d eligible posts out of %2$d required for the slot \"%3$s\"."
+msgstr ""
+
+#: includes/class-bmfr-rotator.php:292
+msgid "Replaced by hand (Swap), not excluded"
+msgstr ""
+
+#: includes/class-bmfr-rotator.php:372
+msgid "Removed because excluded (post or category)"
+msgstr ""
+
+#. translators: 1: number of posts excluded, 2: comma-separated list of matched seasonal labels
+#: includes/class-bmfr-selector.php:148
+#, php-format
+msgid "%1$d posts excluded because out of season (%2$s)."
+msgstr ""
+
+#. translators: %d: number of posts excluded because they are already featured in another slot
+#: includes/class-bmfr-selector.php:174
+#, php-format
+msgid "%d posts excluded because already featured in another slot at the same time."
+msgstr ""
+
+#. translators: 1: eligible candidates before relaxation, 2: posts required for the slot
+#: includes/class-bmfr-selector.php:203
+#, php-format
+msgid "Not enough eligible posts (%1$d candidates for %2$d places): cooldown relaxed to reach the required number."
+msgstr ""
+
+#. translators: 1: blog title, 2: slot label, 3: formatted date/time the rotation will run
+#: includes/class-bmfr-slack-notifier.php:33
+#, php-format
+msgid "%1$s — :bell: The rotation of %2$s is scheduled for %3$s, unless you step in first."
+msgstr ""
+
+#: includes/class-bmfr-slack-notifier.php:53
+msgid ":white_check_mark: Test successful: the Featured Post Rotator webhook is correctly connected to this channel."
+msgstr ""
+
+#. translators: 1: slot label, 2: formatted date/time the rotation will run
+#: includes/class-bmfr-slack-notifier.php:83
+#, php-format
+msgid ":bell: The rotation of *%1$s* is scheduled for *%2$s*, unless you step in first."
+msgstr ""
+
+#: includes/class-bmfr-slack-notifier.php:101
+msgid "*Coming in*"
+msgstr ""
+
+#: includes/class-bmfr-slack-notifier.php:111
+msgid "*Going out*"
+msgstr ""
+
+#. translators: %s: URL of the admin preview page for this slot
+#: includes/class-bmfr-slack-notifier.php:131
+#, php-format
+msgid "To exclude a candidate or review who will come in: <%s|Open Preview>"
+msgstr ""
+
+#. translators: 1: final score, 2: number of times this post has previously rotated into this slot
+#: includes/class-bmfr-slack-notifier.php:161
+#, php-format
+msgid "Score: *%1$s* · Previous rotations: *%2$d*"
+msgstr ""

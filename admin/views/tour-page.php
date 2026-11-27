@@ -13,30 +13,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $bmfr_tabs = array(
-	BMFR_Tour_Page::TAB_REVIEW   => __( 'Da controllare', 'featured-post-rotator' ),
-	BMFR_Tour_Page::TAB_KEPT     => __( 'Candidati', 'featured-post-rotator' ),
-	BMFR_Tour_Page::TAB_EXCLUDED => __( 'Esclusi', 'featured-post-rotator' ),
+	BMFR_Tour_Page::TAB_REVIEW   => __( 'To review', 'featured-post-rotator' ),
+	BMFR_Tour_Page::TAB_KEPT     => __( 'Candidates', 'featured-post-rotator' ),
+	BMFR_Tour_Page::TAB_EXCLUDED => __( 'Excluded', 'featured-post-rotator' ),
 );
 
 $bmfr_empty_messages = array(
-	BMFR_Tour_Page::TAB_REVIEW   => __( 'Nessun post da controllare: hai esaminato tutto il candidabile — ottimo lavoro!', 'featured-post-rotator' ),
-	BMFR_Tour_Page::TAB_KEPT     => __( 'Nessun post ancora confermato con "Mantieni".', 'featured-post-rotator' ),
-	BMFR_Tour_Page::TAB_EXCLUDED => __( 'Nessun post escluso finora.', 'featured-post-rotator' ),
+	BMFR_Tour_Page::TAB_REVIEW   => __( 'No posts to review: you have gone through every possible candidate — great job!', 'featured-post-rotator' ),
+	BMFR_Tour_Page::TAB_KEPT     => __( 'No posts confirmed with "Keep" yet.', 'featured-post-rotator' ),
+	BMFR_Tour_Page::TAB_EXCLUDED => __( 'No posts excluded so far.', 'featured-post-rotator' ),
 );
 ?>
 <div class="wrap bmfr-wrap">
-	<h1><?php esc_html_e( 'Rotazione Articoli — Tour candidati', 'featured-post-rotator' ); ?></h1>
+	<h1><?php esc_html_e( 'Post Rotator — Candidate tour', 'featured-post-rotator' ); ?></h1>
 
 	<?php if ( $is_welcome ) : ?>
 		<div class="bmfr-card bmfr-tour-welcome">
-			<h2><?php esc_html_e( 'Benvenuto in Rotazione Articoli', 'featured-post-rotator' ); ?></h2>
-			<p><?php esc_html_e( 'Prima di attivare la rotazione automatica, lavora questa lista fino a svuotarla: per ogni ciclo a cui un post appartiene segna "Mantieni" (va bene così) o "Escludi" (non deve mai comparire lì). È una tantum — una volta decisi tutti i cicli di un post, la riga si sposta nella scheda corrispondente e non torna più tra quelle da controllare.', 'featured-post-rotator' ); ?></p>
+			<h2><?php esc_html_e( 'Welcome to Post Rotator', 'featured-post-rotator' ); ?></h2>
+			<p><?php esc_html_e( 'Before turning on automatic rotation, work through this list until it is empty: for each cycle a post belongs to, mark "Keep" (it is fine) or "Exclude" (it must never appear there). It is a one-off — once all of a post\'s cycles are decided, the row moves to the matching tab and never comes back to the ones to review.', 'featured-post-rotator' ); ?></p>
 			<p>
-				<a class="button button-primary" href="<?php echo esc_url( admin_url( 'admin.php?page=bmfr-settings' ) ); ?>"><?php esc_html_e( 'Ho finito, vai alle Impostazioni', 'featured-post-rotator' ); ?></a>
+				<a class="button button-primary" href="<?php echo esc_url( admin_url( 'admin.php?page=bmfr-settings' ) ); ?>"><?php esc_html_e( 'I\'m done, go to Settings', 'featured-post-rotator' ); ?></a>
 			</p>
 		</div>
 	<?php else : ?>
-		<p class="bmfr-lede"><?php esc_html_e( 'Tutti i post che rientrano nella finestra di età configurata per Trend Posts e/o Spotlight, indipendentemente da stagionalità, cooldown o assegnazione attuale a un ciclo: l\'elenco completo, non solo quello selezionabile in questo momento. Decidi "Mantieni" o "Escludi" per ciascun ciclo — un post può andare bene per uno e no per l\'altro — così da ridurre al minimo gli interventi futuri.', 'featured-post-rotator' ); ?></p>
+		<p class="bmfr-lede"><?php esc_html_e( 'All posts that fall within the age window configured for Trend Posts and/or Spotlight, regardless of seasonality, cooldown or current assignment to a cycle: the complete list, not just what can be picked right now. Decide "Keep" or "Exclude" for each cycle — a post can be right for one and not for the other — to keep future interventions to a minimum.', 'featured-post-rotator' ); ?></p>
 	<?php endif; ?>
 
 	<ul class="subsubsub">
@@ -68,10 +68,10 @@ $bmfr_empty_messages = array(
 		<table class="widefat striped bmfr-tour-table" data-empty-text="<?php echo esc_attr( $bmfr_empty_messages[ $current_tab ] ); ?>">
 			<thead>
 				<tr>
-					<th><?php esc_html_e( 'Immagine', 'featured-post-rotator' ); ?></th>
-					<th><?php esc_html_e( 'Titolo', 'featured-post-rotator' ); ?></th>
-					<th><?php esc_html_e( 'Cicli', 'featured-post-rotator' ); ?></th>
-					<th><?php esc_html_e( 'Riassunto', 'featured-post-rotator' ); ?></th>
+					<th><?php esc_html_e( 'Image', 'featured-post-rotator' ); ?></th>
+					<th><?php esc_html_e( 'Title', 'featured-post-rotator' ); ?></th>
+					<th><?php esc_html_e( 'Cycles', 'featured-post-rotator' ); ?></th>
+					<th><?php esc_html_e( 'Summary', 'featured-post-rotator' ); ?></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -113,7 +113,7 @@ $bmfr_empty_messages = array(
 									<?php endforeach; ?>
 								</div>
 								<div class="bmfr-apply-all">
-									<?php echo BMFR_Tour_Page::render_action_form( 'bmfr_remove_global_exclusion', 'bmfr_tour_unexclude_post', __( 'Riammetti', 'featured-post-rotator' ), $post_id, array( 'exclusion_type' => 'post' ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- already-escaped markup from render_action_form(). ?>
+									<?php echo BMFR_Tour_Page::render_action_form( 'bmfr_remove_global_exclusion', 'bmfr_tour_unexclude_post', __( 'Readmit', 'featured-post-rotator' ), $post_id, array( 'exclusion_type' => 'post' ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- already-escaped markup from render_action_form(). ?>
 								</div>
 							<?php else : ?>
 								<div class="bmfr-cycle-stack">
@@ -123,8 +123,8 @@ $bmfr_empty_messages = array(
 								</div>
 								<?php if ( $open_cycle_count > 1 ) : ?>
 									<div class="bmfr-apply-all">
-										<?php echo BMFR_Tour_Page::render_action_form( 'bmfr_tour_keep_post', 'bmfr_tour_keep_post', __( 'Mantieni tutti', 'featured-post-rotator' ), $post_id, array( 'current_tab' => $current_tab ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- already-escaped markup from render_action_form(). ?>
-										<?php echo BMFR_Tour_Page::render_action_form( 'bmfr_tour_exclude_all_open_cycles', 'bmfr_tour_exclude_all_open_cycles', __( 'Escludi tutti', 'featured-post-rotator' ), $post_id, array( 'current_tab' => $current_tab ), 'button button-small', __( 'Escludere questo post da tutti i cicli non ancora decisi? Se è già in evidenza in uno di quei cicli viene rimosso subito.', 'featured-post-rotator' ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- already-escaped markup from render_action_form(). ?>
+										<?php echo BMFR_Tour_Page::render_action_form( 'bmfr_tour_keep_post', 'bmfr_tour_keep_post', __( 'Keep all', 'featured-post-rotator' ), $post_id, array( 'current_tab' => $current_tab ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- already-escaped markup from render_action_form(). ?>
+										<?php echo BMFR_Tour_Page::render_action_form( 'bmfr_tour_exclude_all_open_cycles', 'bmfr_tour_exclude_all_open_cycles', __( 'Exclude all', 'featured-post-rotator' ), $post_id, array( 'current_tab' => $current_tab ), 'button button-small', __( 'Exclude this post from all cycles not yet decided? If it is already featured in one of those cycles, it is removed immediately.', 'featured-post-rotator' ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- already-escaped markup from render_action_form(). ?>
 									</div>
 								<?php endif; ?>
 							<?php endif; ?>
@@ -150,8 +150,8 @@ $bmfr_empty_messages = array(
 							'format'    => '',
 							'current'   => $current_page,
 							'total'     => $total_pages,
-							'prev_text' => esc_html__( '« Precedenti', 'featured-post-rotator' ),
-							'next_text' => esc_html__( 'Successivi »', 'featured-post-rotator' ),
+							'prev_text' => esc_html__( '« Previous', 'featured-post-rotator' ),
+							'next_text' => esc_html__( 'Next »', 'featured-post-rotator' ),
 						)
 					);
 					?>

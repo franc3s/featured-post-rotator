@@ -21,13 +21,13 @@ class BMFR_Rotator {
 	 */
 	public static function run( $slot_key, $trigger = 'manual', $dry_run = false ) {
 		if ( ! BMFR_Slots::get_slot( $slot_key ) ) {
-			return new WP_Error( 'bmfr_invalid_slot', __( 'Slot non valido.', 'featured-post-rotator' ) );
+			return new WP_Error( 'bmfr_invalid_slot', __( 'Invalid slot.', 'featured-post-rotator' ) );
 		}
 
 		// New installs start with slots that have no tag yet: nothing to
 		// rotate until one is chosen in Impostazioni → Slot.
 		if ( ! BMFR_Slots::has_tag( $slot_key ) ) {
-			return new WP_Error( 'bmfr_slot_no_tag', __( 'Questo slot non ha ancora un tag: sceglilo in Impostazioni → Slot.', 'featured-post-rotator' ) );
+			return new WP_Error( 'bmfr_slot_no_tag', __( 'This slot has no tag yet: choose one in Settings → Slots.', 'featured-post-rotator' ) );
 		}
 
 		// A dry run writes nothing, so it never needs (or waits for) the lock.
@@ -36,7 +36,7 @@ class BMFR_Rotator {
 		}
 
 		if ( ! BMFR_Lock::acquire( self::lock_name( $slot_key ) ) ) {
-			return new WP_Error( 'bmfr_locked', __( 'Una rotazione di questo slot è già in corso: riprova tra qualche minuto.', 'featured-post-rotator' ) );
+			return new WP_Error( 'bmfr_locked', __( 'A rotation of this slot is already running: try again in a few minutes.', 'featured-post-rotator' ) );
 		}
 
 		try {
@@ -74,7 +74,7 @@ class BMFR_Rotator {
 		// The cron tick already checks this before calling run(), but this
 		// guard makes BMFR_Rotator::run() safe to call directly too.
 		if ( 'cron' === $trigger && empty( $settings['enabled'] ) ) {
-			return new WP_Error( 'bmfr_slot_disabled', __( 'Slot disattivato, run cron ignorato.', 'featured-post-rotator' ) );
+			return new WP_Error( 'bmfr_slot_disabled', __( 'Slot turned off, cron run skipped.', 'featured-post-rotator' ) );
 		}
 
 		$warnings   = array();
@@ -85,7 +85,7 @@ class BMFR_Rotator {
 		if ( count( $candidates ) < $slot['count'] ) {
 			$warnings[] = sprintf(
 				/* translators: 1: eligible candidates, 2: posts required, 3: slot label */
-				__( 'Solo %1$d post eleggibili su %2$d richiesti per lo slot "%3$s".', 'featured-post-rotator' ),
+				__( 'Only %1$d eligible posts out of %2$d required for the slot "%3$s".', 'featured-post-rotator' ),
 				count( $candidates ),
 				$slot['count'],
 				$slot['label']
@@ -289,7 +289,7 @@ class BMFR_Rotator {
 			$post_id,
 			'out',
 			null,
-			array( 'message' => 'Sostituito a mano (Cambia), non escluso' ),
+			array( 'message' => __( 'Replaced by hand (Swap), not excluded', 'featured-post-rotator' ) ),
 			null,
 			'swap'
 		);
@@ -369,7 +369,7 @@ class BMFR_Rotator {
 				$post_id,
 				'out',
 				null,
-				array( 'message' => 'Rimosso perché escluso (post o categoria)' ),
+				array( 'message' => __( 'Removed because excluded (post or category)', 'featured-post-rotator' ) ),
 				null,
 				'exclusion'
 			);

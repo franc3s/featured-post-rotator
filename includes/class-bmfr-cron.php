@@ -236,7 +236,7 @@ class BMFR_Cron {
 		if ( ! $any_enabled ) {
 			return array(
 				'status'  => 'neutral',
-				'message' => __( 'Nessuno slot ha il cron attivo al momento: non c\'è nulla da verificare.', 'featured-post-rotator' ),
+				'message' => __( 'No slot has the cron turned on at the moment: there is nothing to check.', 'featured-post-rotator' ),
 			);
 		}
 
@@ -245,7 +245,7 @@ class BMFR_Cron {
 		if ( ! $next_tick ) {
 			return array(
 				'status'  => 'red',
-				'message' => __( 'Il tick orario non risulta pianificato in WP-Cron: la rotazione automatica non partirà. Controlla eventuali plugin di cache/sicurezza che svuotano i cron pianificati, o riattiva il plugin.', 'featured-post-rotator' ),
+				'message' => __( 'The hourly tick is not scheduled in WP-Cron: automatic rotation will not start. Check for cache/security plugins that clear scheduled cron events, or reactivate the plugin.', 'featured-post-rotator' ),
 			);
 		}
 
@@ -257,15 +257,15 @@ class BMFR_Cron {
 			if ( $next_tick > $now ) {
 				return array(
 					'status'  => 'yellow',
-					'message' => __( 'Il tick orario non è ancora mai partito. Se il plugin è stato attivato di recente è normale: tornerà verde dopo la prima esecuzione.', 'featured-post-rotator' ),
+					'message' => __( 'The hourly tick has never run yet. If the plugin was activated recently this is normal: it will turn green after the first run.', 'featured-post-rotator' ),
 				);
 			}
 
 			return array(
 				'status'  => 'red',
 				'message' => $disable_wp_cron
-					? __( 'DISABLE_WP_CRON è attivo in wp-config.php e il tick non è mai partito: serve un cron reale lato server che chiami wp-cron.php, altrimenti la rotazione non scatterà mai.', 'featured-post-rotator' )
-					: __( 'Il tick doveva già essere scattato ma non ha mai eseguito nulla: verifica che wp-cron.php sia raggiungibile (non bloccato da cache/firewall) e che il sito riceva traffico.', 'featured-post-rotator' ),
+					? __( 'DISABLE_WP_CRON is set in wp-config.php and the tick has never run: you need a real server-side cron that calls wp-cron.php, otherwise the rotation will never run.', 'featured-post-rotator' )
+					: __( 'The tick should already have run but has never executed anything: check that wp-cron.php is reachable (not blocked by cache/firewall) and that the site receives traffic.', 'featured-post-rotator' ),
 			);
 		}
 
@@ -274,14 +274,14 @@ class BMFR_Cron {
 		if ( $disable_wp_cron && $delay > 2 * HOUR_IN_SECONDS ) {
 			return array(
 				'status'  => 'red',
-				'message' => __( 'DISABLE_WP_CRON è attivo e l\'ultimo tick risale a più di due ore fa: il cron reale lato server che dovrebbe chiamare wp-cron.php non sta girando (o non abbastanza spesso).', 'featured-post-rotator' ),
+				'message' => __( 'DISABLE_WP_CRON is set and the last tick was more than two hours ago: the real server-side cron that should call wp-cron.php is not running (or not often enough).', 'featured-post-rotator' ),
 			);
 		}
 
 		if ( $delay <= 2 * HOUR_IN_SECONDS ) {
 			return array(
 				'status'  => 'green',
-				'message' => __( 'Il tick orario esegue regolarmente: gli strumenti per far girare il cron sono settati correttamente.', 'featured-post-rotator' ),
+				'message' => __( 'The hourly tick runs regularly: the tools that make the cron run are set up correctly.', 'featured-post-rotator' ),
 			);
 		}
 
@@ -289,14 +289,14 @@ class BMFR_Cron {
 			return array(
 				'status'  => 'yellow',
 				/* translators: %s: hours since the last tick actually ran */
-				'message' => sprintf( __( 'L\'ultimo tick risale a circa %s fa: probabile traffico insufficiente a far scattare il pseudo-cron di WordPress. Valuta un cron reale lato server su wp-cron.php per orari puntuali.', 'featured-post-rotator' ), human_time_diff( $last_tick_run, $now ) ),
+				'message' => sprintf( __( 'The last tick was about %s ago: probably not enough traffic to trigger the WordPress pseudo-cron. Consider a real server-side cron on wp-cron.php for punctual timing.', 'featured-post-rotator' ), human_time_diff( $last_tick_run, $now ) ),
 			);
 		}
 
 		return array(
 			'status'  => 'red',
 			/* translators: %s: hours since the last tick actually ran */
-			'message' => sprintf( __( 'L\'ultimo tick eseguito risale a %s fa: il cron non sta più girando. Controlla DISABLE_WP_CRON, un cron reale lato server, e se cache/firewall bloccano wp-cron.php.', 'featured-post-rotator' ), human_time_diff( $last_tick_run, $now ) ),
+			'message' => sprintf( __( 'The last tick ran %s ago: the cron is no longer running. Check DISABLE_WP_CRON, a real server-side cron, and whether cache/firewall block wp-cron.php.', 'featured-post-rotator' ), human_time_diff( $last_tick_run, $now ) ),
 		);
 	}
 }

@@ -7,7 +7,7 @@ class BMFR_Calendar_Page {
 
 	public static function render() {
 		if ( ! current_user_can( BMFR_Admin::VIEW_CAP ) ) {
-			wp_die( esc_html__( 'Non hai i permessi per accedere a questa pagina.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'featured-post-rotator' ) );
 		}
 
 		$calendar = BMFR_Seasonal::get_calendar();

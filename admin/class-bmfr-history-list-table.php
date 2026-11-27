@@ -26,13 +26,13 @@ class BMFR_History_List_Table extends WP_List_Table {
 
 	public function get_columns() {
 		return array(
-			'created_at'     => __( 'Data', 'featured-post-rotator' ),
+			'created_at'     => __( 'Date', 'featured-post-rotator' ),
 			'slot'           => __( 'Slot', 'featured-post-rotator' ),
 			'post'           => __( 'Post', 'featured-post-rotator' ),
-			'action'         => __( 'Azione', 'featured-post-rotator' ),
-			'score'          => __( 'Punteggio', 'featured-post-rotator' ),
+			'action'         => __( 'Action', 'featured-post-rotator' ),
+			'score'          => __( 'Score', 'featured-post-rotator' ),
 			'trigger_source' => __( 'Trigger', 'featured-post-rotator' ),
-			'breakdown'      => __( 'Dettaglio', 'featured-post-rotator' ),
+			'breakdown'      => __( 'Details', 'featured-post-rotator' ),
 		);
 	}
 
@@ -82,9 +82,9 @@ class BMFR_History_List_Table extends WP_List_Table {
 
 			case 'action':
 				$labels = array(
-					'in'      => __( 'Entrato', 'featured-post-rotator' ),
-					'out'     => __( 'Uscito', 'featured-post-rotator' ),
-					'warning' => __( 'Avviso', 'featured-post-rotator' ),
+					'in'      => __( 'In', 'featured-post-rotator' ),
+					'out'     => __( 'Out', 'featured-post-rotator' ),
+					'warning' => __( 'Notice', 'featured-post-rotator' ),
 				);
 				return isset( $labels[ $item->action ] ) ? esc_html( $labels[ $item->action ] ) : esc_html( $item->action );
 

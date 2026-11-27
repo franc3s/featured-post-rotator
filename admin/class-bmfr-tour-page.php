@@ -34,7 +34,7 @@ class BMFR_Tour_Page {
 
 	public static function render() {
 		if ( ! current_user_can( BMFR_Admin::VIEW_CAP ) ) {
-			wp_die( esc_html__( 'Non hai i permessi per accedere a questa pagina.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'featured-post-rotator' ) );
 		}
 
 		$buckets = self::get_candidate_buckets();
@@ -349,7 +349,7 @@ class BMFR_Tour_Page {
 					<?php
 					$composition = sprintf(
 						/* translators: 1: shared priority, 2: this slot's offset, both signed */
-						__( 'Comune %1$s · ritocco di questo slot %2$s. +/− qui cambia solo il ritocco; la priorità comune si imposta in Priorità e pesi.', 'featured-post-rotator' ),
+						__( 'Shared %1$s · this slot\'s adjustment %2$s. +/− here only changes the adjustment; the shared priority is set in Priority and weights.', 'featured-post-rotator' ),
 						self::format_signed( BMFR_Settings::get_shared_priority( $post_id ) ),
 						self::format_signed( BMFR_Settings::get_slot_offset( $slot_key, $post_id ) )
 					);
@@ -389,16 +389,16 @@ class BMFR_Tour_Page {
 		if ( 'open' === $decision ) {
 			?>
 			<div class="bmfr-cycle-mini-btns">
-				<?php echo self::render_action_form( 'bmfr_tour_keep_cycle', 'bmfr_tour_keep_cycle', __( 'Mantieni', 'featured-post-rotator' ), $post_id, array_merge( array( 'slot' => $slot_key, 'current_tab' => $current_tab ), $score_fields ), 'bmfr-mini-keep' ); // phpcs:ignore WordPress.Security.EscapeOutput -- already-escaped markup from render_action_form(). ?>
-				<?php echo self::render_action_form( 'bmfr_tour_exclude_cycle', 'bmfr_tour_exclude_cycle', __( 'Escludi', 'featured-post-rotator' ), $post_id, array_merge( array( 'slot' => $slot_key, 'current_tab' => $current_tab ), $score_fields ), 'bmfr-mini-exclude', __( 'Escludere questo post da questo ciclo? Se è già in evidenza qui viene rimosso subito.', 'featured-post-rotator' ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- already-escaped markup from render_action_form(). ?>
+				<?php echo self::render_action_form( 'bmfr_tour_keep_cycle', 'bmfr_tour_keep_cycle', __( 'Keep', 'featured-post-rotator' ), $post_id, array_merge( array( 'slot' => $slot_key, 'current_tab' => $current_tab ), $score_fields ), 'bmfr-mini-keep' ); // phpcs:ignore WordPress.Security.EscapeOutput -- already-escaped markup from render_action_form(). ?>
+				<?php echo self::render_action_form( 'bmfr_tour_exclude_cycle', 'bmfr_tour_exclude_cycle', __( 'Exclude', 'featured-post-rotator' ), $post_id, array_merge( array( 'slot' => $slot_key, 'current_tab' => $current_tab ), $score_fields ), 'bmfr-mini-exclude', __( 'Exclude this post from this cycle? If it is already featured here, it is removed immediately.', 'featured-post-rotator' ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- already-escaped markup from render_action_form(). ?>
 			</div>
 			<?php
 		} else {
 			?>
 			<span class="bmfr-cycle-resolved-label">
-				<?php echo 'kept' === $decision ? esc_html__( 'mantenuto ✓', 'featured-post-rotator' ) : esc_html__( 'escluso ✕', 'featured-post-rotator' ); ?>
+				<?php echo 'kept' === $decision ? esc_html__( 'kept ✓', 'featured-post-rotator' ) : esc_html__( 'excluded ✕', 'featured-post-rotator' ); ?>
 			</span>
-			<?php echo self::render_action_form( 'bmfr_tour_reset_cycle', 'bmfr_tour_reset_cycle', __( 'cambia', 'featured-post-rotator' ), $post_id, array_merge( array( 'slot' => $slot_key, 'current_tab' => $current_tab ), $score_fields ), 'bmfr-cycle-change' ); // phpcs:ignore WordPress.Security.EscapeOutput -- already-escaped markup from render_action_form(). ?>
+			<?php echo self::render_action_form( 'bmfr_tour_reset_cycle', 'bmfr_tour_reset_cycle', __( 'swap', 'featured-post-rotator' ), $post_id, array_merge( array( 'slot' => $slot_key, 'current_tab' => $current_tab ), $score_fields ), 'bmfr-cycle-change' ); // phpcs:ignore WordPress.Security.EscapeOutput -- already-escaped markup from render_action_form(). ?>
 			<?php
 		}
 

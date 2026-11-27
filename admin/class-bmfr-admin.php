@@ -64,21 +64,21 @@ class BMFR_Admin {
 
 	public static function register_menu() {
 		add_menu_page(
-			__( 'Rotazione Articoli', 'featured-post-rotator' ),
-			__( 'Rotazione Articoli', 'featured-post-rotator' ),
+			__( 'Post Rotator', 'featured-post-rotator' ),
+			__( 'Post Rotator', 'featured-post-rotator' ),
 			self::VIEW_CAP,
 			'bmfr-settings',
 			array( 'BMFR_Settings_Page', 'render' ),
 			'dashicons-update'
 		);
 
-		add_submenu_page( 'bmfr-settings', __( 'Impostazioni', 'featured-post-rotator' ), __( 'Impostazioni', 'featured-post-rotator' ), self::VIEW_CAP, 'bmfr-settings', array( 'BMFR_Settings_Page', 'render' ) );
-		add_submenu_page( 'bmfr-settings', __( 'Tour candidati', 'featured-post-rotator' ), __( 'Tour candidati', 'featured-post-rotator' ), self::VIEW_CAP, 'bmfr-tour', array( 'BMFR_Tour_Page', 'render' ) );
-		add_submenu_page( 'bmfr-settings', __( 'Anteprima', 'featured-post-rotator' ), __( 'Anteprima', 'featured-post-rotator' ), self::VIEW_CAP, 'bmfr-preview', array( 'BMFR_Preview_Page', 'render' ) );
-		add_submenu_page( 'bmfr-settings', __( 'Priorità e pesi', 'featured-post-rotator' ), __( 'Priorità e pesi', 'featured-post-rotator' ), self::VIEW_CAP, 'bmfr-priority', array( 'BMFR_Priority_Page', 'render' ) );
-		add_submenu_page( 'bmfr-settings', __( 'Cronologia', 'featured-post-rotator' ), __( 'Cronologia', 'featured-post-rotator' ), self::VIEW_CAP, 'bmfr-history', array( __CLASS__, 'render_history_page' ) );
-		add_submenu_page( 'bmfr-settings', __( 'Calendario stagionale', 'featured-post-rotator' ), __( 'Calendario stagionale', 'featured-post-rotator' ), self::VIEW_CAP, 'bmfr-calendar', array( 'BMFR_Calendar_Page', 'render' ) );
-		add_submenu_page( 'bmfr-settings', __( 'Esclusioni', 'featured-post-rotator' ), __( 'Esclusioni', 'featured-post-rotator' ), self::VIEW_CAP, 'bmfr-exclusions', array( 'BMFR_Exclusions_Page', 'render' ) );
+		add_submenu_page( 'bmfr-settings', __( 'Settings', 'featured-post-rotator' ), __( 'Settings', 'featured-post-rotator' ), self::VIEW_CAP, 'bmfr-settings', array( 'BMFR_Settings_Page', 'render' ) );
+		add_submenu_page( 'bmfr-settings', __( 'Candidate tour', 'featured-post-rotator' ), __( 'Candidate tour', 'featured-post-rotator' ), self::VIEW_CAP, 'bmfr-tour', array( 'BMFR_Tour_Page', 'render' ) );
+		add_submenu_page( 'bmfr-settings', __( 'Preview', 'featured-post-rotator' ), __( 'Preview', 'featured-post-rotator' ), self::VIEW_CAP, 'bmfr-preview', array( 'BMFR_Preview_Page', 'render' ) );
+		add_submenu_page( 'bmfr-settings', __( 'Priority and weights', 'featured-post-rotator' ), __( 'Priority and weights', 'featured-post-rotator' ), self::VIEW_CAP, 'bmfr-priority', array( 'BMFR_Priority_Page', 'render' ) );
+		add_submenu_page( 'bmfr-settings', __( 'History', 'featured-post-rotator' ), __( 'History', 'featured-post-rotator' ), self::VIEW_CAP, 'bmfr-history', array( __CLASS__, 'render_history_page' ) );
+		add_submenu_page( 'bmfr-settings', __( 'Seasonal calendar', 'featured-post-rotator' ), __( 'Seasonal calendar', 'featured-post-rotator' ), self::VIEW_CAP, 'bmfr-calendar', array( 'BMFR_Calendar_Page', 'render' ) );
+		add_submenu_page( 'bmfr-settings', __( 'Exclusions', 'featured-post-rotator' ), __( 'Exclusions', 'featured-post-rotator' ), self::VIEW_CAP, 'bmfr-exclusions', array( 'BMFR_Exclusions_Page', 'render' ) );
 	}
 
 	/**
@@ -119,7 +119,7 @@ class BMFR_Admin {
 
 	public static function render_history_page() {
 		if ( ! current_user_can( self::VIEW_CAP ) ) {
-			wp_die( esc_html__( 'Non hai i permessi per accedere a questa pagina.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'featured-post-rotator' ) );
 		}
 
 		$list_table = new BMFR_History_List_Table();
@@ -142,8 +142,8 @@ class BMFR_Admin {
 				'ajaxUrl'     => admin_url( 'admin-ajax.php' ),
 				'searchNonce' => wp_create_nonce( 'bmfr_search_posts' ),
 				'strings'     => array(
-					'confirm' => __( 'Confermi', 'featured-post-rotator' ),
-					'cancel'  => __( 'Annulla', 'featured-post-rotator' ),
+					'confirm' => __( 'Confirm', 'featured-post-rotator' ),
+					'cancel'  => __( 'Cancel', 'featured-post-rotator' ),
 				),
 			)
 		);
@@ -151,14 +151,14 @@ class BMFR_Admin {
 
 	public static function handle_save_settings() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		$slot_key = isset( $_POST['slot'] ) ? sanitize_key( wp_unslash( $_POST['slot'] ) ) : '';
 		check_admin_referer( 'bmfr_save_settings_' . $slot_key );
 
 		if ( ! BMFR_Slots::get_slot( $slot_key ) ) {
-			wp_die( esc_html__( 'Slot non valido.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Invalid slot.', 'featured-post-rotator' ) );
 		}
 
 		$raw   = isset( $_POST['bmfr'] ) && is_array( $_POST['bmfr'] ) ? wp_unslash( $_POST['bmfr'] ) : array(); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
@@ -193,7 +193,7 @@ class BMFR_Admin {
 	 */
 	public static function handle_save_slots() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_save_slots' );
@@ -233,7 +233,7 @@ class BMFR_Admin {
 
 	public static function handle_save_cron_time() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_save_cron_time' );
@@ -255,7 +255,7 @@ class BMFR_Admin {
 
 	public static function handle_save_slack_settings() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_save_slack_settings' );
@@ -279,7 +279,7 @@ class BMFR_Admin {
 
 	public static function handle_send_slack_test() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_send_slack_test' );
@@ -306,7 +306,7 @@ class BMFR_Admin {
 	 */
 	public static function handle_rotate_now() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_rotate_now' );
@@ -377,14 +377,14 @@ class BMFR_Admin {
 
 	public static function handle_dry_run() {
 		if ( ! current_user_can( self::VIEW_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		$slot_key = isset( $_POST['slot'] ) ? sanitize_key( wp_unslash( $_POST['slot'] ) ) : '';
 		check_admin_referer( 'bmfr_dry_run_' . $slot_key );
 
 		if ( ! BMFR_Slots::get_slot( $slot_key ) ) {
-			wp_die( esc_html__( 'Slot non valido.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Invalid slot.', 'featured-post-rotator' ) );
 		}
 
 		$result = BMFR_Rotator::run( $slot_key, 'manual', true );
@@ -408,7 +408,7 @@ class BMFR_Admin {
 
 	public static function handle_save_calendar() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_save_calendar' );
@@ -467,7 +467,7 @@ class BMFR_Admin {
 
 	public static function handle_add_global_exclusion() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_exclusion_action' );
@@ -491,7 +491,7 @@ class BMFR_Admin {
 
 	public static function handle_remove_global_exclusion() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_exclusion_action' );
@@ -523,7 +523,7 @@ class BMFR_Admin {
 	 */
 	public static function handle_exclude_post() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_exclusion_action' );
@@ -545,7 +545,7 @@ class BMFR_Admin {
 	 */
 	public static function handle_swap_post() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_swap_post' );
@@ -567,7 +567,7 @@ class BMFR_Admin {
 	 */
 	public static function handle_tour_keep_post() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_exclusion_action' );
@@ -589,7 +589,7 @@ class BMFR_Admin {
 	 */
 	public static function handle_tour_exclude_all_open_cycles() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_exclusion_action' );
@@ -609,7 +609,7 @@ class BMFR_Admin {
 	 */
 	public static function handle_tour_keep_cycle() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_exclusion_action' );
@@ -633,7 +633,7 @@ class BMFR_Admin {
 	 */
 	public static function handle_tour_exclude_cycle() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_exclusion_action' );
@@ -655,7 +655,7 @@ class BMFR_Admin {
 	 */
 	public static function handle_tour_reset_cycle() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_exclusion_action' );
@@ -678,7 +678,7 @@ class BMFR_Admin {
 	 */
 	public static function handle_tour_adjust_score() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_exclusion_action' );
@@ -700,7 +700,7 @@ class BMFR_Admin {
 	 */
 	public static function handle_tour_reset_score() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		check_admin_referer( 'bmfr_exclusion_action' );
@@ -725,14 +725,14 @@ class BMFR_Admin {
 	 */
 	public static function handle_save_weights() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		$slot_key = isset( $_POST['slot'] ) ? sanitize_key( wp_unslash( $_POST['slot'] ) ) : '';
 		check_admin_referer( 'bmfr_save_weights_' . $slot_key );
 
 		if ( ! BMFR_Slots::get_slot( $slot_key ) ) {
-			wp_die( esc_html__( 'Slot non valido.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Invalid slot.', 'featured-post-rotator' ) );
 		}
 
 		$raw_weights = isset( $_POST['bmfr_weights'] ) && is_array( $_POST['bmfr_weights'] ) ? wp_unslash( $_POST['bmfr_weights'] ) : array(); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput -- cast to float per key in update_slot_weights().
@@ -759,7 +759,7 @@ class BMFR_Admin {
 	 */
 	public static function handle_priority_recalculate() {
 		if ( ! current_user_can( self::VIEW_CAP ) ) {
-			wp_die( esc_html__( 'Permessi insufficienti.', 'featured-post-rotator' ) );
+			wp_die( esc_html__( 'Insufficient permissions.', 'featured-post-rotator' ) );
 		}
 
 		$slot_key = isset( $_POST['slot'] ) ? sanitize_key( wp_unslash( $_POST['slot'] ) ) : '';
@@ -797,17 +797,17 @@ class BMFR_Admin {
 	 */
 	public static function ajax_priority_set() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permessi insufficienti.', 'featured-post-rotator' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'featured-post-rotator' ) ), 403 );
 		}
 
 		if ( ! check_ajax_referer( 'bmfr_priority_set', 'nonce', false ) ) {
-			wp_send_json_error( array( 'message' => __( 'Sessione scaduta, ricarica la pagina.', 'featured-post-rotator' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Session expired, please reload the page.', 'featured-post-rotator' ) ), 403 );
 		}
 
 		$post_id = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
 
 		if ( $post_id <= 0 || 'post' !== get_post_type( $post_id ) ) {
-			wp_send_json_error( array( 'message' => __( 'Post non valido.', 'featured-post-rotator' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Invalid post.', 'featured-post-rotator' ) ) );
 		}
 
 		$shared  = isset( $_POST['shared'] ) && '' !== $_POST['shared'] ? (float) wp_unslash( $_POST['shared'] ) : null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput -- cast to float, clamped in set_priority().
@@ -850,11 +850,11 @@ class BMFR_Admin {
 	 */
 	public static function ajax_priority_exclusion() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permessi insufficienti.', 'featured-post-rotator' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'featured-post-rotator' ) ), 403 );
 		}
 
 		if ( ! check_ajax_referer( 'bmfr_priority_set', 'nonce', false ) ) {
-			wp_send_json_error( array( 'message' => __( 'Sessione scaduta, ricarica la pagina.', 'featured-post-rotator' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Session expired, please reload the page.', 'featured-post-rotator' ) ), 403 );
 		}
 
 		$post_id  = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
@@ -862,11 +862,11 @@ class BMFR_Admin {
 		$op       = isset( $_POST['op'] ) ? sanitize_key( wp_unslash( $_POST['op'] ) ) : '';
 
 		if ( $post_id <= 0 || 'post' !== get_post_type( $post_id ) ) {
-			wp_send_json_error( array( 'message' => __( 'Post non valido.', 'featured-post-rotator' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Invalid post.', 'featured-post-rotator' ) ) );
 		}
 
 		if ( ! BMFR_Slots::get_slot( $slot_key ) || ! in_array( $op, array( 'exclude_slot', 'exclude_all', 'readmit' ), true ) ) {
-			wp_send_json_error( array( 'message' => __( 'Operazione non valida.', 'featured-post-rotator' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Invalid operation.', 'featured-post-rotator' ) ) );
 		}
 
 		$was_live = array();
@@ -968,18 +968,18 @@ class BMFR_Admin {
 	 */
 	private static function require_tour_post_id() {
 		if ( ! current_user_can( self::WRITE_CAP ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permessi insufficienti.', 'featured-post-rotator' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'featured-post-rotator' ) ), 403 );
 		}
 
 		$nonce = isset( $_POST['_wpnonce'] ) ? wp_unslash( $_POST['_wpnonce'] ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput -- verified by wp_verify_nonce() below.
 		if ( ! wp_verify_nonce( $nonce, 'bmfr_exclusion_action' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Sessione scaduta, ricarica la pagina.', 'featured-post-rotator' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Session expired, please reload the page.', 'featured-post-rotator' ) ), 403 );
 		}
 
 		$post_id = isset( $_POST['exclusion_id'] ) ? absint( $_POST['exclusion_id'] ) : 0;
 
 		if ( $post_id <= 0 ) {
-			wp_send_json_error( array( 'message' => __( 'Post non valido.', 'featured-post-rotator' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Invalid post.', 'featured-post-rotator' ) ) );
 		}
 
 		return $post_id;
@@ -994,7 +994,7 @@ class BMFR_Admin {
 		$slot_key = isset( $_POST['slot'] ) ? sanitize_key( wp_unslash( $_POST['slot'] ) ) : '';
 
 		if ( ! BMFR_Slots::get_slot( $slot_key ) ) {
-			wp_send_json_error( array( 'message' => __( 'Ciclo non valido.', 'featured-post-rotator' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Invalid cycle.', 'featured-post-rotator' ) ) );
 		}
 
 		return $slot_key;
@@ -1245,32 +1245,32 @@ class BMFR_Admin {
 
 		$notice   = sanitize_key( wp_unslash( $_GET['bmfr_notice'] ) );
 		$messages = array(
-			'saved'   => array( 'success', __( 'Impostazioni salvate.', 'featured-post-rotator' ) ),
-			'rotated' => array( 'success', __( 'Rotazione eseguita.', 'featured-post-rotator' ) ),
-			'rotated_partial' => array( 'error', __( 'Rotazione eseguita solo per alcuni degli slot selezionati: controlla la cronologia per i dettagli.', 'featured-post-rotator' ) ),
-			'no_slot_selected' => array( 'error', __( 'Seleziona almeno uno slot prima di eseguire la rotazione.', 'featured-post-rotator' ) ),
-			'slots_saved'          => array( 'success', __( 'Slot salvati.', 'featured-post-rotator' ) ),
-			'slots_saved_retagged' => array( 'warning', __( 'Slot salvati. Hai cambiato il tag di uno slot: i post che avevano il tag precedente lo conservano, toglilo a mano se non deve più comparire nel blocco. La prossima rotazione userà il nuovo tag.', 'featured-post-rotator' ) ),
-			'slots_unknown_tag'    => array( 'error', __( 'Tag non trovato: scegli uno dei tag esistenti. Nessuna modifica salvata.', 'featured-post-rotator' ) ),
-			'slots_duplicate_tag'  => array( 'error', __( 'Due slot non possono usare lo stesso tag. Nessuna modifica salvata.', 'featured-post-rotator' ) ),
-			'slots_none_left'      => array( 'error', __( 'Deve restare almeno uno slot. Nessuna modifica salvata.', 'featured-post-rotator' ) ),
-			'slots_too_many'       => array( 'error', __( 'Hai raggiunto il numero massimo di slot. Nessuna modifica salvata.', 'featured-post-rotator' ) ),
-			'preview' => array( 'info', __( 'Anteprima calcolata.', 'featured-post-rotator' ) ),
-			'error'   => array( 'error', __( 'Si è verificato un errore durante la rotazione.', 'featured-post-rotator' ) ),
-			'locked'  => array( 'error', __( 'Una rotazione di questo slot è già in corso (probabilmente il cron): niente è stato modificato. Riprova tra qualche minuto.', 'featured-post-rotator' ) ),
-			'excluded'   => array( 'success', __( 'Esclusione aggiunta. Se qualcosa era già in evidenza ed è stato rimosso, lo slot è stato subito rabboccato con un sostituto.', 'featured-post-rotator' ) ),
-			'swapped'    => array( 'success', __( 'Post sostituito nello slot con un nuovo candidato. Non è stato escluso: resta sorteggiabile nelle prossime rotazioni.', 'featured-post-rotator' ) ),
-			'unexcluded' => array( 'success', __( 'Esclusione rimossa.', 'featured-post-rotator' ) ),
-			'kept'             => array( 'success', __( '"Mantieni" applicato a ogni ciclo di questo post ancora da decidere.', 'featured-post-rotator' ) ),
-			'cycle_kept'       => array( 'success', __( 'Ciclo mantenuto.', 'featured-post-rotator' ) ),
-			'cycle_excluded'   => array( 'success', __( 'Ciclo escluso. Se il post era già in evidenza lì, lo slot è stato subito rabboccato con un sostituto.', 'featured-post-rotator' ) ),
-			'cycle_reset'      => array( 'success', __( 'Decisione sul ciclo annullata: torna tra quelli da controllare.', 'featured-post-rotator' ) ),
-			'score_adjusted'   => array( 'success', __( 'Punteggio corretto manualmente.', 'featured-post-rotator' ) ),
-			'score_reset'      => array( 'success', __( 'Correzione manuale del punteggio rimossa.', 'featured-post-rotator' ) ),
-			'weights_saved'          => array( 'success', __( 'Pesi salvati.', 'featured-post-rotator' ) ),
-			'priority_recalculated'  => array( 'success', __( 'Classifica ricalcolata.', 'featured-post-rotator' ) ),
-			'slack_test_sent'   => array( 'success', __( 'Messaggio di prova inviato su Slack: controlla il canale collegato al webhook.', 'featured-post-rotator' ) ),
-			'slack_test_failed' => array( 'error', __( 'Invio fallito. Controlla che l\'URL del webhook sia corretto e salvato.', 'featured-post-rotator' ) ),
+			'saved'   => array( 'success', __( 'Settings saved.', 'featured-post-rotator' ) ),
+			'rotated' => array( 'success', __( 'Rotation completed.', 'featured-post-rotator' ) ),
+			'rotated_partial' => array( 'error', __( 'Rotation completed for only some of the selected slots: check the history for details.', 'featured-post-rotator' ) ),
+			'no_slot_selected' => array( 'error', __( 'Select at least one slot before running the rotation.', 'featured-post-rotator' ) ),
+			'slots_saved'          => array( 'success', __( 'Slots saved.', 'featured-post-rotator' ) ),
+			'slots_saved_retagged' => array( 'warning', __( 'Slots saved. You changed a slot\'s tag: posts that had the previous tag keep it, so remove it by hand if they should no longer appear in the block. The next rotation will use the new tag.', 'featured-post-rotator' ) ),
+			'slots_unknown_tag'    => array( 'error', __( 'Tag not found: choose one of the existing tags. No changes saved.', 'featured-post-rotator' ) ),
+			'slots_duplicate_tag'  => array( 'error', __( 'Two slots cannot use the same tag. No changes saved.', 'featured-post-rotator' ) ),
+			'slots_none_left'      => array( 'error', __( 'At least one slot must remain. No changes saved.', 'featured-post-rotator' ) ),
+			'slots_too_many'       => array( 'error', __( 'You have reached the maximum number of slots. No changes saved.', 'featured-post-rotator' ) ),
+			'preview' => array( 'info', __( 'Preview calculated.', 'featured-post-rotator' ) ),
+			'error'   => array( 'error', __( 'An error occurred during the rotation.', 'featured-post-rotator' ) ),
+			'locked'  => array( 'error', __( 'A rotation of this slot is already running (probably the cron): nothing was changed. Try again in a few minutes.', 'featured-post-rotator' ) ),
+			'excluded'   => array( 'success', __( 'Exclusion added. If something was already featured and has been removed, the slot was immediately topped up with a replacement.', 'featured-post-rotator' ) ),
+			'swapped'    => array( 'success', __( 'Post replaced in the slot with a new candidate. It was not excluded: it can still be picked in future rotations.', 'featured-post-rotator' ) ),
+			'unexcluded' => array( 'success', __( 'Exclusion removed.', 'featured-post-rotator' ) ),
+			'kept'             => array( 'success', __( '"Keep" applied to every cycle of this post still to be decided.', 'featured-post-rotator' ) ),
+			'cycle_kept'       => array( 'success', __( 'Cycle kept.', 'featured-post-rotator' ) ),
+			'cycle_excluded'   => array( 'success', __( 'Cycle excluded. If the post was already featured there, the slot was immediately topped up with a replacement.', 'featured-post-rotator' ) ),
+			'cycle_reset'      => array( 'success', __( 'Cycle decision undone: it is back among those to review.', 'featured-post-rotator' ) ),
+			'score_adjusted'   => array( 'success', __( 'Score adjusted manually.', 'featured-post-rotator' ) ),
+			'score_reset'      => array( 'success', __( 'Manual score adjustment removed.', 'featured-post-rotator' ) ),
+			'weights_saved'          => array( 'success', __( 'Weights saved.', 'featured-post-rotator' ) ),
+			'priority_recalculated'  => array( 'success', __( 'Ranking recalculated.', 'featured-post-rotator' ) ),
+			'slack_test_sent'   => array( 'success', __( 'Test message sent to Slack: check the channel connected to the webhook.', 'featured-post-rotator' ) ),
+			'slack_test_failed' => array( 'error', __( 'Sending failed. Check that the webhook URL is correct and saved.', 'featured-post-rotator' ) ),
 		);
 
 		if ( isset( $messages[ $notice ] ) ) {

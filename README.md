@@ -7,7 +7,7 @@
 
 A WordPress plugin that keeps a blog's "featured" blocks fresh by rotating which posts carry a tag, on a schedule, according to editorial criteria. Your theme keeps showing "posts with tag X" as it does today; the plugin only decides which posts have that tag. Theme templates are never modified.
 
-> The admin interface is currently in Italian. An English source with an Italian translation is planned.
+> The admin interface is in English, with a complete Italian translation included (`languages/`). To add a language, start from `languages/featured-post-rotator.pot`.
 
 ## Features
 
